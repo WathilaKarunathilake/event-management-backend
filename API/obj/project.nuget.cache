@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "pkZP/M2TD0M=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\EventManagementAPI.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\WathilaKarunathilake\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.5\\microsoft.aspnetcore.openapi.9.0.5.nupkg.sha512",
+    "C:\\Users\\WathilaKarunathilake\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512",
+    "C:\\Users\\WathilaKarunathilake\\.nuget\\packages\\stylecop.analyzers\\1.1.118\\stylecop.analyzers.1.1.118.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "QnybXo9R7SM=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\EventManagementAPI.Core.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\WathilaKarunathilake\\.nuget\\packages\\stylecop.analyzers\\1.1.118\\stylecop.analyzers.1.1.118.nupkg.sha512"
+  ],
+  "logs": []
+}
