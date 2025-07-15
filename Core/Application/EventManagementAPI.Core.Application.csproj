@@ -8,13 +8,14 @@
 
   <ItemGroup>
     <Folder Include="Contracts\Identity\" />
-    <Folder Include="Contracts\Persistence\" />
     <Folder Include="Features\Auth\" />
-    <Folder Include="DTO\" />
-    <Folder Include="Profiles\" />
+    <Folder Include="Features\Registrations\GetRegistrationsById\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="FluentValidator" Version="2.0.4" />
+    <PackageReference Include="MediatR" Version="13.0.0" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -23,5 +24,9 @@
 
 	<ItemGroup>
 		<AdditionalFiles Include="stylecop.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Domain\EventManagementAPI.Core.Domain.csproj" />
 	</ItemGroup>
 </Project>

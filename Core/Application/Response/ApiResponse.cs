@@ -3,10 +3,13 @@
 // </copyright>
 namespace EventManagementAPI.Core.Application.Response
 {
-    public class ApiResponse<T>
-    {
-        public T? Data { get; set; }
 
-        public bool Success { get; set; } = true;
+    public static class ApiResponse
+    {
+        public static ApiResponse<T> Success<T>(T data) =>
+            new ApiResponse<T> { Data = data };
+
+        public static ApiResponse<string> Fail(string error) =>
+            new ApiResponse<string> { Success = false, Data = error };
     }
 }
