@@ -1,6 +1,8 @@
 ﻿// <copyright file="Registration.cs" company="Ascentic">
 // Copyright (c) Ascentic. All rights reserved.
 // </copyright>
+using EventManagementAPI.Core.Domain.Enums;
+
 namespace EventManagementAPI.Core.Domain.Entities
 {
     public class Registration
@@ -9,14 +11,7 @@ namespace EventManagementAPI.Core.Domain.Entities
 
         public Guid EventId { get; set; }
         public Guid UserId { get; set; }
-
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-
         public DateTime RegisteredAt { get; set; } = DateTime.UtcNow;
-        public DateTime? CancelledAt { get; set; }
-
-
+        public RegisterType registerType { get; set; } = RegisterType.REGISTERED;
     }
 }

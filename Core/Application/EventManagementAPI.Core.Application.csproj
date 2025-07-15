@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Contracts\Identity\" />
     <Folder Include="Features\Auth\" />
-    <Folder Include="Features\Registrations\GetRegistrationsById\" />
   </ItemGroup>
 
   <ItemGroup>
