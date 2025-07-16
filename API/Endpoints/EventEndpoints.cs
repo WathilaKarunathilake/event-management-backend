@@ -1,7 +1,6 @@
 ﻿// <copyright file="EventEndpoints.cs" company="Ascentic">
 // Copyright (c) Ascentic. All rights reserved.
 // </copyright>
-
 namespace EventManagementAPI.API.Endpoints
 {
     using EventManagementAPI.API.Extensions;

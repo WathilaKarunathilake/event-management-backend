@@ -13,6 +13,7 @@ namespace EventManagementAPI.Core.Application.Features.Events.AddEvent
         public string Location { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
+        public int Capacity { get; set; }
         public Guid CreatedBy { get; set; }
     }
 }

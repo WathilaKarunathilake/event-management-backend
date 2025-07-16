@@ -9,7 +9,7 @@ namespace EventManagementAPI.Core.Domain.Entities
         public string Title { get; set; }
         public string Description { get; set; }
         public string Location { get; set; }
-        public int capacity { get; set; }
+        public int Capacity { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
         public Guid CreatedBy { get; set; }

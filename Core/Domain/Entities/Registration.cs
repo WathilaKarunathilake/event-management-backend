@@ -12,6 +12,6 @@ namespace EventManagementAPI.Core.Domain.Entities
         public Guid EventId { get; set; }
         public Guid UserId { get; set; }
         public DateTime RegisteredAt { get; set; } = DateTime.UtcNow;
-        public RegisterType registerType { get; set; } = RegisterType.REGISTERED;
+        public RegisterType RegisterType { get; set; } = RegisterType.REGISTERED;
     }
 }

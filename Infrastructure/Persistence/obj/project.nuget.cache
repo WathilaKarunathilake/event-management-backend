@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "ezuEZ+VM2B4=",
+  "dgSpecHash": "bHOaa3BFFII=",
   "success": true,
   "projectFilePath": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Infrastructure\\Persistence\\EventManagementAPI.Infrastructure.Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\WathilaKarunathilake\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
     "C:\\Users\\WathilaKarunathilake\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\WathilaKarunathilake\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
+    "C:\\Users\\WathilaKarunathilake\\.nuget\\packages\\fluentvalidation\\12.0.0\\fluentvalidation.12.0.0.nupkg.sha512",
     "C:\\Users\\WathilaKarunathilake\\.nuget\\packages\\fluentvalidator\\2.0.4\\fluentvalidator.2.0.4.nupkg.sha512",
     "C:\\Users\\WathilaKarunathilake\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\WathilaKarunathilake\\.nuget\\packages\\mediatr\\13.0.0\\mediatr.13.0.0.nupkg.sha512",

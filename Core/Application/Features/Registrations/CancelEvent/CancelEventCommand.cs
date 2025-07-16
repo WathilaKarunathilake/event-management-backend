@@ -9,6 +9,5 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.CancelEvent
     public class CancelEventCommand : ICommand<Result<string>>
     {
         public Guid EventId { get; set; }
-        public Guid UserId { get; set; }
     }
 }

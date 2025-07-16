@@ -27,6 +27,7 @@ namespace EventManagementAPI.Core.Application.Features.Events.UpdateEvent
             {
                 return Result<string>.Failure("Unable to find the event");
             }
+
             var updateEvent = mapper.Map<Event>(request);
             await eventRepository.UpdateAsync(updateEvent);
             return Result<string>.Success("Event updated successfully");

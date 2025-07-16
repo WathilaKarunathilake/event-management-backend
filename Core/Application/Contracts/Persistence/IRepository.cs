@@ -1,6 +1,8 @@
 ﻿// <copyright file="IRepository.cs" company="Ascentic">
 // Copyright (c) Ascentic. All rights reserved.
 // </copyright>
+using System.Linq.Expressions;
+
 namespace EventManagementAPI.Core.Application.Contracts.Persistence
 {
     public interface IRepository<T>
@@ -17,5 +19,9 @@ namespace EventManagementAPI.Core.Application.Contracts.Persistence
         Task DeleteAsync(Guid id);
 
         Task SaveAsync();
+
+        Task<List<T>> FindAllAsync(Expression<Func<T, bool>> predicate);
+
+        Task<T?> FindFirstOrDefaultAsync(Expression<Func<T, bool>> predicate);
     }
 }

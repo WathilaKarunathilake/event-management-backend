@@ -24,8 +24,11 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.CancelEvent
 
         public async Task<Result<string>> Handle(CancelEventCommand request, CancellationToken cancellationToken)
         {
-            var eventDetails = await registrationRepository.GetAllAsync();
-
+            var eventDetails = await registrationRepository.FindFirstOrDefaultAsync(x => x.EventId == request.EventId);
+            eventDetails.RegisterType = Domain.Enums.RegisterType.CANCELED;
+            await registrationRepository.UpdateAsync(eventDetails);
+            await registrationRepository.SaveAsync();
+            return Result<string>.Success("Event updated successfully !");
         }
     }
 }

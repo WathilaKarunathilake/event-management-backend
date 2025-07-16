@@ -14,5 +14,6 @@ namespace EventManagementAPI.Infrastructure.Persistence.Context
         }
 
         public DbSet<Event> Events { get; set; }
+        public DbSet<Registration> Registrations { get; set; }
     }
 }

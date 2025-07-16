@@ -6,6 +6,7 @@ namespace EventManagementAPI.Infrastructure.Persistence.Repository
     using EventManagementAPI.Core.Application.Contracts.Persistence;
     using EventManagementAPI.Infrastructure.Persistence.Context;
     using Microsoft.EntityFrameworkCore;
+    using System.Linq.Expressions;
 
     public class Repository<T> : IRepository<T>
         where T : class
@@ -45,5 +46,15 @@ namespace EventManagementAPI.Infrastructure.Persistence.Repository
         }
 
         public async Task SaveAsync() => await this.context.SaveChangesAsync();
+
+        public async Task<List<T>> FindAllAsync(Expression<Func<T, bool>> predicate)
+        {
+            return await this.dbSet.Where(predicate).ToListAsync();
+        }
+
+        public async Task<T?> FindFirstOrDefaultAsync(Expression<Func<T, bool>> predicate)
+        {
+            return await this.dbSet.FirstOrDefaultAsync(predicate);
+        }
     }
 }
