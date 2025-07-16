@@ -45,8 +45,8 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.RegisterEve
             var evt = await eventRepository.GetByIdAsync(request.EventId);
             if (evt == null) return false;
 
-            var allRegistrations = await registrationRepository.GetAllAsync(); // no filter
-            var count = allRegistrations.Count(r => r.EventId == request.EventId && r.registerType == RegisterType.REGISTERED);
+            var allRegistrations = await registrationRepository.GetAllAsync(); 
+            var count = allRegistrations.Count(r => r.EventId == request.EventId && r.RegisterType == RegisterType.REGISTERED);
 
             return count < evt.Capacity;
         }
@@ -63,7 +63,7 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.RegisterEve
             return !allRegistrations.Any(r =>
                 r.EventId == request.EventId &&
                 r.UserId == request.UserId &&
-                r.registerType == RegisterType.REGISTERED);
+                r.RegisterType == RegisterType.REGISTERED);
         }
     }
 }

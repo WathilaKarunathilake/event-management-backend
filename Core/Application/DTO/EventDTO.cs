@@ -13,6 +13,6 @@ namespace EventManagementAPI.Core.Application.DTO
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
         public Guid CreatedBy { get; set; }
-        public DateTime Created { get; set;}
+        public DateTime Created { get; set; }
     }
 }

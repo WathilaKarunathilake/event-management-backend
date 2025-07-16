@@ -3,9 +3,10 @@
 // </copyright>
 namespace EventManagementAPI.Infrastructure.Identity.Models
 {
-    public class ApplicationUser
+    using Microsoft.AspNetCore.Identity;
+
+    public class ApplicationUser : IdentityUser
     {
         public string? Name { get; set; }
-        public string? PhoneNumber { get; set; }
     }
 }

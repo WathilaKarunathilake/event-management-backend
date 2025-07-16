@@ -21,7 +21,7 @@ namespace EventManagementAPI.Core.Application.Features.Events.AddEvent
             RuleFor(x => x.Location)
                 .NotEmpty().WithMessage("Location is required.")
                 .MaximumLength(200).WithMessage("Location must not exceed 200 characters.");
-            
+
             RuleFor(x => x.Capacity)
                 .GreaterThan(0).WithMessage("Capacity must be greater than 0.")
                 .LessThanOrEqualTo(10000).WithMessage("Capacity must not exceed 10,000.");

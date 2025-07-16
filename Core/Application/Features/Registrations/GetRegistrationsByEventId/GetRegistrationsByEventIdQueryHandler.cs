@@ -23,7 +23,7 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.GetRegistra
         public async Task<Result<List<EventDTO>>> Handle(GetRegistrationsByEventIdQuery request, CancellationToken cancellationToken)
         {
             var registrations = await registrationRepository.FindAllAsync(x => x.EventId == request.EventId);
-
+            return Result<List<EventDTO>>.Failure(""); 
         }
     }
 }

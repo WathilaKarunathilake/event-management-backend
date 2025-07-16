@@ -3,10 +3,10 @@
 // </copyright>
 namespace EventManagementAPI.Infrastructure.Persistence.Repository
 {
+    using System.Linq.Expressions;
     using EventManagementAPI.Core.Application.Contracts.Persistence;
     using EventManagementAPI.Infrastructure.Persistence.Context;
     using Microsoft.EntityFrameworkCore;
-    using System.Linq.Expressions;
 
     public class Repository<T> : IRepository<T>
         where T : class
