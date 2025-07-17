@@ -5,5 +5,7 @@ namespace EventManagementAPI.Core.Application.Contracts.Messaging.Commands
 {
     using MediatR;
 
-    public interface ICommand : IRequest { }
+    public interface ICommand : IRequest
+    {
+    }
 }

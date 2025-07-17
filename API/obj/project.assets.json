@@ -3451,7 +3451,8 @@
           "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.7",
           "Microsoft.AspNetCore.Authorization": "9.0.7",
           "Microsoft.AspNetCore.Identity": "2.3.1",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.7"
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.7",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.7"
         },
         "compile": {
           "bin/placeholder/EventManagementAPI.Infrastructure.Identity.dll": {}

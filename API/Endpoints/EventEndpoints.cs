@@ -34,7 +34,7 @@ namespace EventManagementAPI.API.Endpoints
 
             if (!result.IsSuccess)
             {
-                return Results.BadRequest(ApiResponse.Fail(result.Error));
+                return Results.BadRequest(ApiResponse.Fail(result.Error!));
             }
 
             return Results.Created($"/api/events/{result.Value}", ApiResponse.Success(result.Value));
@@ -46,7 +46,7 @@ namespace EventManagementAPI.API.Endpoints
 
             if (!result.IsSuccess)
             {
-                return Results.BadRequest(ApiResponse.Fail(result.Error));
+                return Results.BadRequest(ApiResponse.Fail(result.Error!));
             }
 
             return Results.Ok(ApiResponse.Success(result.Value));
@@ -58,7 +58,7 @@ namespace EventManagementAPI.API.Endpoints
 
             if (!result.IsSuccess)
             {
-                return Results.BadRequest(ApiResponse.Fail(result.Error));
+                return Results.BadRequest(ApiResponse.Fail(result.Error!));
             }
 
             return Results.Ok(ApiResponse.Success(result.Value));
@@ -72,7 +72,7 @@ namespace EventManagementAPI.API.Endpoints
 
             if (!result.IsSuccess)
             {
-                return Results.BadRequest(ApiResponse.Fail(result.Error));
+                return Results.BadRequest(ApiResponse.Fail(result.Error!));
             }
 
             return Results.Ok(ApiResponse.Success(result.Value));
@@ -84,7 +84,7 @@ namespace EventManagementAPI.API.Endpoints
 
             if (!result.IsSuccess)
             {
-                return Results.BadRequest(ApiResponse.Fail(result.Error));
+                return Results.BadRequest(ApiResponse.Fail(result.Error!));
             }
 
             return Results.Ok(ApiResponse.Success(result.Value));

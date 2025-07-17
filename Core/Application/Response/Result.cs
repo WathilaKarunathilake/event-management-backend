@@ -3,22 +3,24 @@
 // </copyright>
 namespace EventManagementAPI.Core.Application.Response
 {
+    using EventManagementAPI.Core.Domain.Errors;
+
     public class Result<T>
     {
-        public T? Value { get; private set; }
-
-        public string? Error { get; private set; }
-
-        public bool IsSuccess => this.Error is null;
-
-        private Result(T? value, string? error)
+        private Result(T? value, Error? error)
         {
             this.Value = value;
             this.Error = error;
         }
 
+        public T? Value { get; private set; }
+
+        public Error? Error { get; private set; }
+
+        public bool IsSuccess => this.Error is null;
+
         public static Result<T> Success(T value) => new (value, null);
 
-        public static Result<T> Failure(string error) => new (default, error);
+        public static Result<T> Failure(Error error) => new (default, error);
     }
 }

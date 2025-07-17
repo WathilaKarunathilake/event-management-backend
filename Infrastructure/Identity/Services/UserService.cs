@@ -7,6 +7,7 @@ using EventManagementAPI.Core.Domain.Enums;
 using EventManagementAPI.Infrastructure.Identity.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace EventManagementAPI.Infrastructure.Identity.Services
 {
@@ -121,6 +122,42 @@ namespace EventManagementAPI.Infrastructure.Identity.Services
                 Email = existingUser.Email,
                 Role = parsedRole,
             };
+        }
+
+        public async Task<List<UserDataDTO>> GetUsersByIdsAsync(List<Guid> userIds)
+        {
+            var userIdStrings = userIds.Select(id => id.ToString()).ToList();
+
+            var users = await userManager.Users
+                .Where(u => userIdStrings.Contains(u.Id))
+                .ToListAsync();
+
+            var userDataList = users.Select(u => new UserDataDTO
+            {
+                Name = u.Name,
+                Email = u.Email,
+                PhoneNumber = u.PhoneNumber,
+            }).ToList();
+
+            return userDataList;
+        }
+
+        public async Task<UserDataDTO?> GetUserDetailsByIdAsync(Guid userId)
+        {
+            var user = await this.userManager.FindByIdAsync(userId.ToString());
+            if (user == null)
+            {
+                return null;
+            }
+
+            var userData = new UserDataDTO
+            {
+                Name = user.Name,
+                Email = user.Email,
+                PhoneNumber = user.PhoneNumber,
+            };
+
+            return userData;
         }
     }
 }

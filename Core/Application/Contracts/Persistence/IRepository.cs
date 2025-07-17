@@ -1,10 +1,10 @@
 ﻿// <copyright file="IRepository.cs" company="Ascentic">
 // Copyright (c) Ascentic. All rights reserved.
 // </copyright>
-using System.Linq.Expressions;
-
 namespace EventManagementAPI.Core.Application.Contracts.Persistence
 {
+    using System.Linq.Expressions;
+
     public interface IRepository<T>
         where T : class
     {

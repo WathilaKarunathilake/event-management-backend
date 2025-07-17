@@ -27,7 +27,7 @@ namespace EventManagementAPI.API.Endpoints
             var result = await sender.Send(command);
             if (!result.IsSuccess)
             {
-                return Results.BadRequest(ApiResponse.Fail(result.Error));
+                return Results.BadRequest(ApiResponse.Fail(result.Error!));
             }
 
             return Results.Ok(ApiResponse.Success(result.Value));
@@ -38,7 +38,7 @@ namespace EventManagementAPI.API.Endpoints
             var result = await sender.Send(new GetRegistrationsByEventIdQuery { EventId = id });
             if (!result.IsSuccess)
             {
-                return Results.BadRequest(ApiResponse.Fail(result.Error));
+                return Results.BadRequest(ApiResponse.Fail(result.Error!));
             }
 
             return Results.Ok(ApiResponse.Success(result.Value));
@@ -49,7 +49,7 @@ namespace EventManagementAPI.API.Endpoints
             var result = await sender.Send(new GetRegistrationsByEventIdQuery { EventId = id });
             if (!result.IsSuccess)
             {
-                return Results.BadRequest(ApiResponse.Fail(result.Error));
+                return Results.BadRequest(ApiResponse.Fail(result.Error!));
             }
 
             return Results.Ok(ApiResponse.Success(result.Value));
@@ -60,7 +60,7 @@ namespace EventManagementAPI.API.Endpoints
             var result = await sender.Send(new GetRegistrationsByUserIdQuery { UserId = id });
             if (!result.IsSuccess)
             {
-                return Results.BadRequest(ApiResponse.Fail(result.Error));
+                return Results.BadRequest(ApiResponse.Fail(result.Error!));
             }
 
             return Results.Ok(ApiResponse.Success(result.Value));

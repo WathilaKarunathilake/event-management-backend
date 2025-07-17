@@ -6,6 +6,7 @@ using EventManagementAPI.Core.Application.Contracts.Identity;
 using EventManagementAPI.Core.Application.Contracts.Persistence;
 using EventManagementAPI.Core.Application.Profiles;
 using EventManagementAPI.Infrastructure.Identity.Context;
+using EventManagementAPI.Infrastructure.Identity.Extensions;
 using EventManagementAPI.Infrastructure.Identity.Models;
 using EventManagementAPI.Infrastructure.Identity.Services;
 using EventManagementAPI.Infrastructure.Persistence.Context;
@@ -15,7 +16,7 @@ using Microsoft.EntityFrameworkCore;
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
 
@@ -26,7 +27,7 @@ public class Program
 
         builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-        
+
         builder.Services.AddDbContext<AppIdentityDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -50,6 +51,13 @@ public class Program
         app.UseHttpsRedirection();
 
         app.RegisterAllEndpointGroups();
+
+        using (var scope = app.Services.CreateScope())
+        {
+            var services = scope.ServiceProvider;
+            await SeedData.InitializeAsync(services);
+        }
+
         app.Run();
     }
 }

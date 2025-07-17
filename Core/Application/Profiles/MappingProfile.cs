@@ -16,6 +16,7 @@ namespace EventManagementAPI.Core.Application.Profiles
             this.CreateMap<AddEventCommand, Event>().ReverseMap();
             this.CreateMap<UpdateEventCommand, Event>().ReverseMap();
             this.CreateMap<Event, EventDTO>().ReverseMap();
+            this.CreateMap<List<Event>, List<EventDTO>>().ReverseMap();
         }
     }
 }

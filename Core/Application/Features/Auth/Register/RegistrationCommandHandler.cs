@@ -1,15 +1,14 @@
 ﻿// <copyright file="RegistrationCommandHandler.cs" company="Ascentic">
 // Copyright (c) Ascentic. All rights reserved.
 // </copyright>
-using AutoMapper.Execution;
-using EventManagementAPI.Core.Application.Contracts.Identity;
-using EventManagementAPI.Core.Application.Contracts.Messaging.Commands;
-using EventManagementAPI.Core.Application.DTO;
-using EventManagementAPI.Core.Application.Response;
-using EventManagementAPI.Core.Domain.Errors;
-
 namespace EventManagementAPI.Core.Application.Features.Auth.Register
 {
+    using EventManagementAPI.Core.Application.Contracts.Identity;
+    using EventManagementAPI.Core.Application.Contracts.Messaging.Commands;
+    using EventManagementAPI.Core.Application.DTO;
+    using EventManagementAPI.Core.Application.Response;
+    using EventManagementAPI.Core.Domain.Errors;
+
     public class RegistrationCommandHandler : ICommandHandler<RegistrationCommand, Result<AuthDTO>>
     {
         private readonly IUserService userService;
@@ -28,7 +27,7 @@ namespace EventManagementAPI.Core.Application.Features.Auth.Register
 
             if (!result.Succeeded)
             {
-                return Result<AuthDTO>.Failure("");
+                return Result<AuthDTO>.Failure(DomainErrors.Custom.Failure(result.Errors!));
             }
 
             await this.userService.AddToRoleAsync(request.Email, request.Role.ToString());
