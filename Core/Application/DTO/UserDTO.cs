@@ -18,5 +18,7 @@ namespace EventManagementAPI.Core.Application.DTO
         public UserRole? Role { get; set; }
 
         public string? Email { get; set; }
+
+        public string? PhoneNumber { get; set; }
     }
 }

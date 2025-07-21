@@ -2781,7 +2781,8 @@
           "EventManagementAPI.Core.Domain": "1.0.0",
           "FluentValidation": "12.0.0",
           "FluentValidator": "2.0.4",
-          "MediatR": "13.0.0"
+          "MediatR": "13.0.0",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.3.0"
         },
         "compile": {
           "bin/placeholder/EventManagementAPI.Core.Application.dll": {}

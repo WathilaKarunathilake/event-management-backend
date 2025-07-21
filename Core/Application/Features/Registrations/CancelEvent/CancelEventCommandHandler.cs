@@ -6,6 +6,8 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.CancelEvent
     using AutoMapper;
     using EventManagementAPI.Core.Application.Contracts.Messaging.Commands;
     using EventManagementAPI.Core.Application.Contracts.Persistence;
+    using EventManagementAPI.Core.Application.DTO;
+    using EventManagementAPI.Core.Application.Extensions;
     using EventManagementAPI.Core.Application.Response;
     using EventManagementAPI.Core.Domain.Entities;
     using EventManagementAPI.Core.Domain.Errors;
@@ -13,34 +15,52 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.CancelEvent
     public class CancelEventCommandHandler : ICommandHandler<CancelEventCommand, Result<string>>
     {
         private readonly IRepository<Registration> registrationRepository;
-        private readonly IMapper mapper;
+        private readonly IUnitOfWork unitOfWork;
 
-        public CancelEventCommandHandler(IRepository<Registration> registrationRepository, IMapper mapper)
+        public CancelEventCommandHandler(IRepository<Registration> registrationRepository, IUnitOfWork unitOfWork)
         {
             this.registrationRepository = registrationRepository;
-            this.mapper = mapper;
+            this.unitOfWork = unitOfWork;
         }
 
         public async Task<Result<string>> Handle(CancelEventCommand request, CancellationToken cancellationToken)
         {
-            var registration = await this.registrationRepository.FindFirstOrDefaultAsync(x => x.EventId == request.EventId);
-
-            if (registration == null)
+            try
             {
-                return Result<string>.Failure(DomainErrors.Registration.NotFoundForEvent(request.EventId));
-            }
+                var userIdString = request.User.GetUserId();
+                if (string.IsNullOrEmpty(userIdString) || !Guid.TryParse(userIdString, out var userId))
+                {
+                    return Result<string>.Failure(DomainErrors.Auth.NotAuthenticated());
+                }
 
-            if (registration.RegisterType == Domain.Enums.RegisterType.CANCELED)
+                request.UserId = userId;
+
+                await this.unitOfWork.BeginTransactionAsync();
+                var registration = await this.registrationRepository.FindFirstOrDefaultAsync(x => x.EventId == request.EventId);
+
+                if (registration == null)
+                {
+                    return Result<string>.Failure(DomainErrors.Registration.NotFoundForEvent(request.EventId));
+                }
+
+                if (registration.RegisterType == Domain.Enums.RegisterType.CANCELED)
+                {
+                    return Result<string>.Failure(DomainErrors.Registration.AlreadyCanceled());
+                }
+
+                registration.RegisterType = Domain.Enums.RegisterType.CANCELED;
+
+                await this.registrationRepository.UpdateAsync(registration);
+
+                await this.unitOfWork.SaveChangesAsync(cancellationToken);
+                await this.unitOfWork.CommitAsync();
+                return Result<string>.Success("Event canceled successfully!");
+            }
+            catch (Exception)
             {
-                return Result<string>.Failure(DomainErrors.Registration.AlreadyCanceled());
+                await this.unitOfWork.RollbackAsync();
+                return Result<string>.Failure(DomainErrors.Transaction.TransactionFailed());
             }
-
-            registration.RegisterType = Domain.Enums.RegisterType.CANCELED;
-
-            await this.registrationRepository.UpdateAsync(registration);
-            await this.registrationRepository.SaveAsync();
-
-            return Result<string>.Success("Event canceled successfully!");
-        }
+         }
     }
 }

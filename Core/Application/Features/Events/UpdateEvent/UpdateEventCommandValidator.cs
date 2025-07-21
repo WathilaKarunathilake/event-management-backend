@@ -3,37 +3,38 @@
 // </copyright>
 namespace EventManagementAPI.Core.Application.Features.Events.UpdateEvent
 {
+    using EventManagementAPI.Core.Domain.Errors;
     using FluentValidation;
 
     public class UpdateEventCommandValidator : AbstractValidator<UpdateEventCommand>
     {
         public UpdateEventCommandValidator()
         {
-            this.RuleFor(x => x.Id)
-                .NotEmpty().WithMessage("Event ID is required.");
-
             this.RuleFor(x => x.Title)
-                .NotEmpty().WithMessage("Title is required.")
-                .MaximumLength(100).WithMessage("Title must not exceed 100 characters.");
+               .NotEmpty().WithMessage(DomainErrors.Event.TitleIsRequired().Message)
+               .MaximumLength(100).WithMessage(DomainErrors.Event.TitleTooLong().Message);
 
             this.RuleFor(x => x.Description)
-                .NotEmpty().WithMessage("Description is required.")
-                .MinimumLength(100).WithMessage("Description must be atleast 100 characters.")
-                .MaximumLength(1000).WithMessage("Description must not exceed 1000 characters.");
+                .NotEmpty().WithMessage(DomainErrors.Event.DescriptionIsRequired().Message)
+                .MinimumLength(100).WithMessage(DomainErrors.Event.DescriptionTooShort().Message)
+                .MaximumLength(1000).WithMessage(DomainErrors.Event.DescriptionTooLong().Message);
 
             this.RuleFor(x => x.Location)
-                .NotEmpty().WithMessage("Location is required.")
-                .MaximumLength(200).WithMessage("Location must not exceed 200 characters.");
+                .NotEmpty().WithMessage(DomainErrors.Event.LocationIsRequired().Message)
+                .MaximumLength(200).WithMessage(DomainErrors.Event.LocationTooLong().Message);
 
             this.RuleFor(x => x.Capacity)
-                .GreaterThan(0).WithMessage("Capacity must be greater than 0.")
-                .LessThanOrEqualTo(10000).WithMessage("Capacity must not exceed 10,000.");
+                .GreaterThan(0).WithMessage(DomainErrors.Event.CapacityMustBePositive().Message)
+                .LessThanOrEqualTo(10000).WithMessage(DomainErrors.Event.CapacityTooLarge().Message);
 
             this.RuleFor(x => x.StartDateTime)
-                .GreaterThan(DateTime.Now).WithMessage("Start time must be in the future.");
+                .GreaterThan(DateTime.Now).WithMessage(DomainErrors.Event.StartTimeInPast().Message);
 
             this.RuleFor(x => x.EndDateTime)
-                .GreaterThan(x => x.StartDateTime).WithMessage("End time must be after start time.");
+                .GreaterThan(x => x.StartDateTime).WithMessage(DomainErrors.Event.EndTimeBeforeStart().Message);
+
+            this.RuleFor(x => x.EventType)
+                .IsInEnum().WithMessage(DomainErrors.Event.EventTypeInvalid().Message);
         }
     }
 }

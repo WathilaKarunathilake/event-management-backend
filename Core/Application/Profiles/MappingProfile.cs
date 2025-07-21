@@ -7,6 +7,7 @@ namespace EventManagementAPI.Core.Application.Profiles
     using EventManagementAPI.Core.Application.DTO;
     using EventManagementAPI.Core.Application.Features.Events.AddEvent;
     using EventManagementAPI.Core.Application.Features.Events.UpdateEvent;
+    using EventManagementAPI.Core.Application.Features.Registrations.RegisterEvent;
     using EventManagementAPI.Core.Domain.Entities;
 
     public class MappingProfile : Profile
@@ -15,8 +16,10 @@ namespace EventManagementAPI.Core.Application.Profiles
         {
             this.CreateMap<AddEventCommand, Event>().ReverseMap();
             this.CreateMap<UpdateEventCommand, Event>().ReverseMap();
+            this.CreateMap<RegisterEventCommand, Registration>().ReverseMap();
+
             this.CreateMap<Event, EventDTO>().ReverseMap();
-            this.CreateMap<List<Event>, List<EventDTO>>().ReverseMap();
+            this.CreateMap<UserDTO, UserDTO>().ReverseMap();
         }
     }
 }

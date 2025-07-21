@@ -7,6 +7,12 @@ namespace EventManagementAPI.Core.Domain.Errors
     {
         public static class Registration
         {
+            public static Error EventIdRequired() =>
+                Error.Validation("Registration.EventIdRequired", "Event ID is required.");
+
+            public static Error UserIdRequired() =>
+                Error.Validation("Registration.UserIdRequired", "User ID is required.");
+
             public static Error NotFoundForEvent(Guid eventId) =>
                 Error.NotFound(
                     "Registration.NotFoundForEvent",
@@ -21,10 +27,25 @@ namespace EventManagementAPI.Core.Domain.Errors
                 Error.Failure(
                     "Registration.AlreadyCanceled",
                     "This registration is already canceled");
+
+            public static Error EventIsFull(string title) =>
+                Error.Failure("Registration.EventIsFull", $"The event '{title}' is already full.");
+
+            public static Error CutoffPassed(string title) =>
+                Error.Failure("Registration.CutoffPassed", $"The registration period for '{title}' has ended.");
+
+            public static Error AlreadyRegistered(string title) =>
+                Error.Failure("Registration.AlreadyRegistered", $"You have already registered for '{title}'.");
         }
 
         public static class Event
         {
+            public static Error NotCreatedByUser(Guid id) =>
+                Error.Unauthorized("Event.NotCreatedByUser", $"Event you are tryin to delete is not created by the user {id}");
+
+            public static Error EventTypeInvalid() =>
+                Error.Validation("Event.EventTypeInvalid", "Invalid event type.");
+
             public static Error TitleIsRequired() =>
                 Error.Validation("Event.TitleIsRequired", "Title is required.");
 
@@ -67,6 +88,8 @@ namespace EventManagementAPI.Core.Domain.Errors
 
         public static class Auth
         {
+            public static Error NotAuthenticated() => Error.Unauthorized("Auth.NotAuthenticated", "User is not authenticated");
+
             public static Error EmailIsRequired() =>
                 Error.Validation("Auth.EmailIsRequired", "Email is required.");
 
@@ -94,8 +117,16 @@ namespace EventManagementAPI.Core.Domain.Errors
             public static Error InvalidRole() =>
                 Error.Validation("Auth.InvalidRole", "Invalid role.");
 
+            public static Error UserNotFound(Guid id) =>
+                Error.Validation("Auth.UserNotFound", $"User with ID : {id} not found.");
+
             public static Error InvalidCredentials() =>
                 Error.Validation("Auth.InvalidCredentials", "The email or password is incorrect.");
+        }
+
+        public static class Transaction
+        {
+            public static Error TransactionFailed() => Error.Failure("Transaction.TransactionFailed", "Transaction failed !");
         }
 
         public static class Custom

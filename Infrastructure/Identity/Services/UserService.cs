@@ -1,16 +1,15 @@
 ﻿// <copyright file="UserService.cs" company="Ascentic">
 // Copyright (c) Ascentic. All rights reserved.
 // </copyright>
-using EventManagementAPI.Core.Application.Contracts.Identity;
-using EventManagementAPI.Core.Application.DTO;
-using EventManagementAPI.Core.Domain.Enums;
-using EventManagementAPI.Infrastructure.Identity.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
-
 namespace EventManagementAPI.Infrastructure.Identity.Services
 {
+    using EventManagementAPI.Core.Application.Contracts.Identity;
+    using EventManagementAPI.Core.Application.DTO;
+    using EventManagementAPI.Core.Domain.Enums;
+    using EventManagementAPI.Infrastructure.Identity.Models;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.EntityFrameworkCore;
+
     public class UserService : IUserService
     {
         private readonly UserManager<ApplicationUser> userManager;
@@ -90,7 +89,7 @@ namespace EventManagementAPI.Infrastructure.Identity.Services
         public async Task<string> GetEmailFromId(string id)
         {
             var user = await this.userManager.FindByIdAsync(id);
-            return user.Email;
+            return user!.Email!;
         }
 
         public async Task<UserDTO> GetUserDetailsFromEmail(string email)
@@ -124,16 +123,17 @@ namespace EventManagementAPI.Infrastructure.Identity.Services
             };
         }
 
-        public async Task<List<UserDataDTO>> GetUsersByIdsAsync(List<Guid> userIds)
+        public async Task<List<UserDTO>> GetUsersByIdsAsync(List<Guid> userIds)
         {
             var userIdStrings = userIds.Select(id => id.ToString()).ToList();
 
-            var users = await userManager.Users
+            var users = await this.userManager.Users
                 .Where(u => userIdStrings.Contains(u.Id))
                 .ToListAsync();
 
-            var userDataList = users.Select(u => new UserDataDTO
+            var userDataList = users.Select(u => new UserDTO
             {
+                UserId = Guid.Parse(u.Id),
                 Name = u.Name,
                 Email = u.Email,
                 PhoneNumber = u.PhoneNumber,
@@ -142,7 +142,7 @@ namespace EventManagementAPI.Infrastructure.Identity.Services
             return userDataList;
         }
 
-        public async Task<UserDataDTO?> GetUserDetailsByIdAsync(Guid userId)
+        public async Task<UserDTO?> GetUserDetailsByIdAsync(Guid userId)
         {
             var user = await this.userManager.FindByIdAsync(userId.ToString());
             if (user == null)
@@ -150,8 +150,9 @@ namespace EventManagementAPI.Infrastructure.Identity.Services
                 return null;
             }
 
-            var userData = new UserDataDTO
+            var userData = new UserDTO
             {
+                UserId = Guid.Parse(user.Id),
                 Name = user.Name,
                 Email = user.Email,
                 PhoneNumber = user.PhoneNumber,

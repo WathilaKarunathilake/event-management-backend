@@ -12,5 +12,7 @@ namespace EventManagementAPI.Core.Application.Features.Auth.Login
         public string? Email { get; set; }
 
         public string? Password { get; set; }
+
+        public bool RememberMe { get; set; } = true;
     }
 }

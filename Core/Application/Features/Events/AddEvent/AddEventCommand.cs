@@ -6,9 +6,12 @@ namespace EventManagementAPI.Core.Application.Features.Events.AddEvent
     using EventManagementAPI.Core.Application.Contracts.Messaging.Commands;
     using EventManagementAPI.Core.Application.Response;
     using EventManagementAPI.Core.Domain.Enums;
+    using System.Security.Claims;
 
     public class AddEventCommand : ICommand<Result<string>>
     {
+        public ClaimsPrincipal? User { get; set; }
+
         public string? Title { get; set; }
 
         public string? Description { get; set; }

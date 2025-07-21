@@ -10,8 +10,9 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.GetRegistra
     using EventManagementAPI.Core.Application.Response;
     using EventManagementAPI.Core.Domain.Entities;
     using EventManagementAPI.Core.Domain.Errors;
+    using System.Linq;
 
-    public class GetRegistrationsByEventIdQueryHandler : IQueryHandler<GetRegistrationsByEventIdQuery, Result<List<UserDataDTO>>>
+    public class GetRegistrationsByEventIdQueryHandler : IQueryHandler<GetRegistrationsByEventIdQuery, Result<List<RegisteredUsersDTO>>>
     {
         private readonly IRepository<Registration> registrationRepository;
         private readonly IRepository<Event> eventRepository;
@@ -24,19 +25,36 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.GetRegistra
             this.userService = userService;
         }
 
-        public async Task<Result<List<UserDataDTO>>> Handle(GetRegistrationsByEventIdQuery request, CancellationToken cancellationToken)
+        public async Task<Result<List<RegisteredUsersDTO>>> Handle(GetRegistrationsByEventIdQuery request, CancellationToken cancellationToken)
         {
             var eventDetails = await this.eventRepository.GetByIdAsync(request.EventId);
             if (eventDetails == null)
             {
-                return Result<List<UserDataDTO>>.Failure(DomainErrors.Event.NotFound(request.EventId));
+                return Result<List<RegisteredUsersDTO>>.Failure(DomainErrors.Event.NotFound(request.EventId));
             }
 
             var registrations = await this.registrationRepository.FindAllAsync(r => r.EventId == request.EventId);
             var userIds = registrations.Select(r => r.UserId).Distinct().ToList();
-
             var users = await this.userService.GetUsersByIdsAsync(userIds);
-            return Result<List<UserDataDTO>>.Success(users);
+
+            var userDataDtos = registrations
+                .Join(
+                    users,
+                    reg => reg.UserId,
+                    usr => usr.UserId,
+                    (reg, usr) => new RegisteredUsersDTO
+                    {
+                        Name = reg.Name,
+                        Email = reg.Email,
+                        PhoneNumber = reg.PhoneNumber,
+                        AccountEmail = usr.Email,
+                        AccountName = usr.Name,
+                        AccountPhoneNumber = usr.PhoneNumber,
+                        RegisterType = reg.RegisterType,
+                    })
+                .ToList();
+
+            return Result<List<RegisteredUsersDTO>>.Success(userDataDtos);
         }
     }
 }

@@ -16,9 +16,9 @@ namespace EventManagementAPI.Core.Application.Contracts.Identity
 
         Task<string> GetEmailFromId(string id);
 
-        Task<List<UserDataDTO>> GetUsersByIdsAsync(List<Guid> userIds);
+        Task<List<UserDTO>> GetUsersByIdsAsync(List<Guid> userIds);
 
-        Task<UserDataDTO?> GetUserDetailsByIdAsync(Guid userId);
+        Task<UserDTO?> GetUserDetailsByIdAsync(Guid userId);
 
         Task<UserDTO> CreateUserAsync(string username, string email, string password, string phoneNumber, UserRole role);
     }

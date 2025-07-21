@@ -1,26 +1,44 @@
-﻿// <copyright file="GetUserDetailsQueryHandler.cs" company="Ascentic">
-// Copyright (c) Ascentic. All rights reserved.
-// </copyright>
-namespace EventManagementAPI.Core.Application.Features.Auth.GetUserDetails
+﻿namespace EventManagementAPI.Core.Application.Features.Auth.GetUserDetails
 {
+    using AutoMapper;
     using EventManagementAPI.Core.Application.Contracts.Identity;
     using EventManagementAPI.Core.Application.Contracts.Messaging.Query;
     using EventManagementAPI.Core.Application.DTO;
+    using EventManagementAPI.Core.Application.Extensions;
     using EventManagementAPI.Core.Application.Response;
+    using EventManagementAPI.Core.Domain.Errors;
+    using System.Threading;
+    using System.Threading.Tasks;
 
-    public class GetUserDetailsQueryhandler : IQueryHandler<GetUserDetailsQuery, Result<UserDataDTO>>
+    public class GetUserDetailsQueryHandler : IQueryHandler<GetUserDetailsQuery, Result<UserDataDTO>>
     {
         private readonly IUserService userService;
+        private readonly IMapper mapper;
 
-        public GetUserDetailsQueryhandler(IUserService userService)
+        public GetUserDetailsQueryHandler(IUserService userService, IMapper mapper)
         {
             this.userService = userService;
+            this.mapper = mapper;
         }
 
         public async Task<Result<UserDataDTO>> Handle(GetUserDetailsQuery request, CancellationToken cancellationToken)
         {
-            var userDetails = await this.userService.GetUserDetailsByIdAsync(request.UserId);
-            return Result<UserDataDTO>.Success(userDetails!);
+            var user = request.User;
+
+            if (user == null || !user.IsAuthenticated())
+            {
+                return Result<UserDataDTO>.Failure(DomainErrors.Auth.NotAuthenticated());
+            }
+
+            var id = user.GetUserId();
+
+            var userDetails = await this.userService.GetUserDetailsByIdAsync(Guid.Parse(id));
+            if (userDetails == null)
+            {
+                return Result<UserDataDTO>.Failure(DomainErrors.Auth.UserNotFound(Guid.Parse(id)));
+            }
+
+            return Result<UserDataDTO>.Success(this.mapper.Map<UserDataDTO>(userDetails));
         }
     }
 }

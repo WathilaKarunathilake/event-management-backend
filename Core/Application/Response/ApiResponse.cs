@@ -10,7 +10,7 @@ namespace EventManagementAPI.Core.Application.Response
         public static ApiResponse<T> Success<T>(T data) =>
             new ApiResponse<T> { Data = data };
 
-        public static ApiResponse<Error> Fail(Error error) =>
-            new ApiResponse<Error> { Success = false, Data = error };
+        public static ApiResponse<string> Fail(Error error) =>
+            new ApiResponse<string> { Success = false, Data = error.Message };
     }
 }

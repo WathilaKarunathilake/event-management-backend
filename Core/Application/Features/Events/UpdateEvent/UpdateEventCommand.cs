@@ -5,6 +5,7 @@ namespace EventManagementAPI.Core.Application.Features.Events.UpdateEvent
 {
     using EventManagementAPI.Core.Application.Contracts.Messaging.Commands;
     using EventManagementAPI.Core.Application.Response;
+    using EventManagementAPI.Core.Domain.Enums;
 
     public class UpdateEventCommand : ICommand<Result<string>>
     {
@@ -17,6 +18,8 @@ namespace EventManagementAPI.Core.Application.Features.Events.UpdateEvent
         public string? Location { get; set; }
 
         public DateTime StartDateTime { get; set; }
+
+        public EventType EventType { get; set; }
 
         public int Capacity { get; set; }
 

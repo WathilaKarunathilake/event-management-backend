@@ -13,25 +13,41 @@ namespace EventManagementAPI.Core.Application.Features.Events.UpdateEvent
     public class UpdateEventCommandHandler : ICommandHandler<UpdateEventCommand, Result<string>>
     {
         private readonly IRepository<Event> eventRepository;
+        private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
 
-        public UpdateEventCommandHandler(IRepository<Event> eventRepository, IMapper mapper)
+        public UpdateEventCommandHandler(IRepository<Event> eventRepository, IUnitOfWork unitOfWork, IMapper mapper)
         {
-            this.mapper = mapper;
             this.eventRepository = eventRepository;
+            this.unitOfWork = unitOfWork;
+            this.mapper = mapper;
         }
 
         public async Task<Result<string>> Handle(UpdateEventCommand request, CancellationToken cancellationToken)
         {
-            var eventDetails = await this.eventRepository.GetByIdAsync(request.Id);
-            if (eventDetails == null)
+            try
             {
-                return Result<string>.Failure(DomainErrors.Event.NotFound(request.Id));
-            }
+                await this.unitOfWork.BeginTransactionAsync();
 
-            var updateEvent = this.mapper.Map<Event>(request);
-            await this.eventRepository.UpdateAsync(updateEvent);
-            return Result<string>.Success("Event updated successfully");
+                var eventDetails = await this.eventRepository.GetByIdAsync(request.Id);
+                if (eventDetails == null)
+                {
+                    return Result<string>.Failure(DomainErrors.Event.NotFound(request.Id));
+                }
+
+                var updateEvent = this.mapper.Map<Event>(request);
+                await this.eventRepository.UpdateAsync(updateEvent);
+
+                await this.unitOfWork.SaveChangesAsync(cancellationToken);
+                await this.unitOfWork.CommitAsync();
+
+                return Result<string>.Success("Event updated successfully");
+            }
+            catch (Exception)
+            {
+                await this.unitOfWork.RollbackAsync();
+                return Result<string>.Failure(DomainErrors.Transaction.TransactionFailed());
+            }
         }
     }
 }

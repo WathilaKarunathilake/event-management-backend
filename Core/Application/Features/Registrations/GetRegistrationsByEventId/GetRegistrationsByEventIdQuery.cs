@@ -7,7 +7,7 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.GetRegistra
     using EventManagementAPI.Core.Application.DTO;
     using EventManagementAPI.Core.Application.Response;
 
-    public class GetRegistrationsByEventIdQuery : IQuery<Result<List<UserDataDTO>>>
+    public class GetRegistrationsByEventIdQuery : IQuery<Result<List<RegisteredUsersDTO>>>
     {
         public Guid EventId { get; set; }
     }

@@ -20,19 +20,18 @@ namespace EventManagementAPI.Core.Application.Features.Auth.Register
             this.jwtTokenGenerateService = jwtTokenGenerateService;
         }
 
-
         public async Task<Result<AuthDTO>> Handle(RegistrationCommand request, CancellationToken cancellationToken)
         {
-            var result = await this.userService.CreateUserAsync(request.Name, request.Email, request.Password, request.PhoneNumber, request.Role);
+            var result = await this.userService.CreateUserAsync(request.Name!, request.Email!, request.Password!, request.PhoneNumber!, request.Role);
 
             if (!result.Succeeded)
             {
                 return Result<AuthDTO>.Failure(DomainErrors.Custom.Failure(result.Errors!));
             }
 
-            await this.userService.AddToRoleAsync(request.Email, request.Role.ToString());
+            await this.userService.AddToRoleAsync(request.Email!, request.Role.ToString());
 
-            string token = this.jwtTokenGenerateService.GenerateToken(result.Name, result.UserId.ToString(), result.Email, request.Role.ToString());
+            string token = this.jwtTokenGenerateService.GenerateToken(result.Name!, result.UserId.ToString(), result.Email!, request.Role.ToString());
             return Result<AuthDTO>.Success(new AuthDTO
             {
                 Token = token,

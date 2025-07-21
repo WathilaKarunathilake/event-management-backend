@@ -33,8 +33,9 @@ namespace EventManagementAPI.Core.Application.Features.Events.AddEvent
             this.RuleFor(x => x.EndDateTime)
                 .GreaterThan(x => x.StartDateTime).WithMessage(DomainErrors.Event.EndTimeBeforeStart().Message);
 
-            this.RuleFor(x => x.CreatedBy)
-                .NotEmpty().WithMessage(DomainErrors.Event.CreatorIdRequired().Message);
+            this.RuleFor(x => x.EventType)
+                .IsInEnum().WithMessage(DomainErrors.Event.EventTypeInvalid().Message);
+
         }
     }
 }
