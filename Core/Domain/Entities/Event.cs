@@ -17,6 +17,8 @@ namespace EventManagementAPI.Core.Domain.Entities
 
         public int Capacity { get; set; }
 
+        public string? ImageUrl { get; set; }
+
         public EventType EventType { get; set; }
 
         public DateTime StartDateTime { get; set; }
@@ -25,6 +27,10 @@ namespace EventManagementAPI.Core.Domain.Entities
 
         public Guid CreatedBy { get; set; }
 
+        public string? CreatorName { get; set; }
+
         public DateTime Created { get; set; } = DateTime.Now;
+
+        public int TotalRegistrations { get; set; } = 0;
     }
 }

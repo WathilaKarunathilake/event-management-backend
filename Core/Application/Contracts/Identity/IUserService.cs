@@ -20,6 +20,10 @@ namespace EventManagementAPI.Core.Application.Contracts.Identity
 
         Task<UserDTO?> GetUserDetailsByIdAsync(Guid userId);
 
+        Task<bool> ValidateRefreshTokenAsync(string userId, string refreshToken);
+
+        Task SaveRefreshTokenAsync(string userId, string refreshToken, DateTime expiryTime);
+
         Task<UserDTO> CreateUserAsync(string username, string email, string password, string phoneNumber, UserRole role);
     }
 }

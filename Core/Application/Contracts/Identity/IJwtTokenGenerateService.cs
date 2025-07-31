@@ -5,6 +5,8 @@ namespace EventManagementAPI.Core.Application.Contracts.Identity
 {
     public interface IJwtTokenGenerateService
     {
+        string GenerateRefreshToken();
+
         string GenerateToken(string name, string userId, string email, string role);
     }
 }

@@ -3,19 +3,20 @@
 // </copyright>
 namespace EventManagementAPI.API.Endpoints
 {
+    using System.Security.Claims;
     using EventManagementAPI.API.Extensions;
     using EventManagementAPI.Core.Application.Features.Events.AddEvent;
     using EventManagementAPI.Core.Application.Features.Events.DeleteEvent;
     using EventManagementAPI.Core.Application.Features.Events.GetEventById;
     using EventManagementAPI.Core.Application.Features.Events.GetEvents;
     using EventManagementAPI.Core.Application.Features.Events.GetEventsByUserId;
+    using EventManagementAPI.Core.Application.Features.Events.GetEventsSummary;
     using EventManagementAPI.Core.Application.Features.Events.UpdateEvent;
     using EventManagementAPI.Core.Application.Response;
     using MediatR;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Routing;
-    using System.Security.Claims;
 
     public class EventEndpoints : IEndpointGroup
     {
@@ -28,9 +29,11 @@ namespace EventManagementAPI.API.Endpoints
             eventGroup.MapPost("/", AddEvent).RequireAuthorization("ADMIN");
             eventGroup.MapPut("/{id:guid}", UpdateEvent).RequireAuthorization("ADMIN");
             eventGroup.MapDelete("/{id:guid}", DeleteEvent).RequireAuthorization("ADMIN");
-            eventGroup.MapGet("/user", GetEventsByUserId).RequireAuthorization("ADMIN");
-            eventGroup.MapGet("/", GetEvents);
             eventGroup.MapGet("/{id:guid}", GetEventById);
+            eventGroup.MapGet("/", GetEvents);
+
+            eventGroup.MapGet("/user", GetEventsByUserId).RequireAuthorization("ADMIN");
+            eventGroup.MapGet("/summary", GetTotalEventSummary).RequireAuthorization("ADMIN");
         }
 
         private static async Task<IResult> GetEventsByUserId(ClaimsPrincipal claims, ISender sender)
@@ -58,10 +61,9 @@ namespace EventManagementAPI.API.Endpoints
             return Results.Created($"/api/events/{result.Value}", ApiResponse.Success(result.Value));
         }
 
-        private static async Task<IResult> GetEvents(ISender sender)
+        private static async Task<IResult> GetEvents(int? page, int? pageSize, string? searchTerm, string? sortBy, ISender sender)
         {
-            var result = await sender.Send(new GetEventsQuery());
-
+            var result = await sender.Send(new GetEventsQuery { Page = page, PageSize = pageSize, SearchTerm = searchTerm, SortBy = sortBy });
             if (!result.IsSuccess)
             {
                 return Results.BadRequest(ApiResponse.Fail(result.Error!));
@@ -96,9 +98,21 @@ namespace EventManagementAPI.API.Endpoints
             return Results.Ok(ApiResponse.Success(result.Value));
         }
 
-        private static async Task<IResult> DeleteEvent(ClaimsPrincipal claims, ISender sender)
+        private static async Task<IResult> DeleteEvent(Guid id, ClaimsPrincipal claims, ISender sender)
         {
-            var result = await sender.Send(new DeleteEventCommand { User = claims });
+            var result = await sender.Send(new DeleteEventCommand { User = claims, Id = id });
+
+            if (!result.IsSuccess)
+            {
+                return Results.BadRequest(ApiResponse.Fail(result.Error!));
+            }
+
+            return Results.Ok(ApiResponse.Success(result.Value));
+        }
+
+        private static async Task<IResult> GetTotalEventSummary(ClaimsPrincipal claims, ISender sender)
+        {
+            var result = await sender.Send(new GetEventsSummaryQuery { User = claims });
 
             if (!result.IsSuccess)
             {

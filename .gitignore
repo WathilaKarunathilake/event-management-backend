@@ -70,3 +70,5 @@ artifacts/
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
+appsettings.*.json
+

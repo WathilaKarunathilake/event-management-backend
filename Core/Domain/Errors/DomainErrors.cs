@@ -40,6 +40,12 @@ namespace EventManagementAPI.Core.Domain.Errors
 
         public static class Event
         {
+            public static Error EventAlreadyPassed() => Error.Failure("Event.EventAlreadyPassed", "Event already passed");
+
+            public static Error CannotDeleteWithActiveRegistrations() => Error.Failure("Event.CannotDeleteWithActiveRegistrations", "Cannot delete any event with registrations before the start time");
+
+            public static Error MaxCapacityReached(Guid eventId) => Error.Validation("Event.MaxCapacityReached", $"Max capacity reached for Event ID {eventId}");
+
             public static Error NotCreatedByUser(Guid id) =>
                 Error.Unauthorized("Event.NotCreatedByUser", $"Event you are tryin to delete is not created by the user {id}");
 
@@ -88,6 +94,8 @@ namespace EventManagementAPI.Core.Domain.Errors
 
         public static class Auth
         {
+            public static Error InvalidRefreshToken() => Error.Failure("Auth.InvalidRefreshToken", "Invalid refresh token provided");
+
             public static Error NotAuthenticated() => Error.Unauthorized("Auth.NotAuthenticated", "User is not authenticated");
 
             public static Error EmailIsRequired() =>

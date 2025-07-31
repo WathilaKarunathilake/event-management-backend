@@ -12,9 +12,6 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.RegisterEve
         {
             this.RuleFor(x => x.EventId)
                 .NotEmpty().WithMessage(DomainErrors.Registration.EventIdRequired().Message);
-
-            this.RuleFor(x => x.UserId)
-                .NotEmpty().WithMessage(DomainErrors.Registration.UserIdRequired().Message);
         }
     }
 }

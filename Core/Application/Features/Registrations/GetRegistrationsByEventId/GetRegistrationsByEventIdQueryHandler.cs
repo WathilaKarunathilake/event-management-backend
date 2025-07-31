@@ -3,6 +3,7 @@
 // </copyright>
 namespace EventManagementAPI.Core.Application.Features.Registrations.GetRegistrations
 {
+    using System.Linq;
     using EventManagementAPI.Core.Application.Contracts.Identity;
     using EventManagementAPI.Core.Application.Contracts.Messaging.Query;
     using EventManagementAPI.Core.Application.Contracts.Persistence;
@@ -10,7 +11,6 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.GetRegistra
     using EventManagementAPI.Core.Application.Response;
     using EventManagementAPI.Core.Domain.Entities;
     using EventManagementAPI.Core.Domain.Errors;
-    using System.Linq;
 
     public class GetRegistrationsByEventIdQueryHandler : IQueryHandler<GetRegistrationsByEventIdQuery, Result<List<RegisteredUsersDTO>>>
     {

@@ -16,7 +16,13 @@ namespace EventManagementAPI.Core.Application.DTO
 
         public string? Location { get; set; }
 
+        public string? CreatorName { get; set; }
+
         public int Capacity { get; set; }
+
+        public string? ImageUrl { get; set; }
+
+        public int TotalRegistrations { get; set; }
 
         public EventType EventType { get; set; }
 

@@ -5,6 +5,8 @@ namespace EventManagementAPI.Core.Application.DTO
 {
     public class AuthDTO
     {
+        public string? RefreshToken { get; set; }
+
         public string? Token { get; set; }
 
         public string? Message { get; set; }

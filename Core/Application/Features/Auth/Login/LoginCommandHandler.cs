@@ -31,8 +31,15 @@ namespace EventManagementAPI.Core.Application.Features.Auth.Login
             var userDetails = await this.userService.GetUserDetailsFromEmail(request.Email!);
 
             string token = this.jwtTokenGenerateService.GenerateToken(userDetails.Name!, userDetails.UserId.ToString(), userDetails.Email!, userDetails.Role.ToString() !);
+            var refreshToken = this.jwtTokenGenerateService.GenerateRefreshToken();
+            var refreshTokenExpiry = DateTime.UtcNow.AddDays(7);
+
+            // Save refresh token to DB
+            await this.userService.SaveRefreshTokenAsync(userDetails.UserId.ToString(), refreshToken, refreshTokenExpiry);
+
             return Result<AuthDTO>.Success(new AuthDTO
             {
+                RefreshToken = refreshToken,
                 Token = token,
                 Message = "User logged in successfully !",
             });

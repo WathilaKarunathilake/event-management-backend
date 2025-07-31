@@ -3,13 +3,13 @@
 // </copyright>
 namespace EventManagementAPI.API.Endpoints
 {
+    using System.Security.Claims;
     using EventManagementAPI.API.Extensions;
     using EventManagementAPI.Core.Application.Features.Registrations.CancelEvent;
     using EventManagementAPI.Core.Application.Features.Registrations.GetRegistrations;
     using EventManagementAPI.Core.Application.Features.Registrations.GetRegistrationsById;
     using EventManagementAPI.Core.Application.Features.Registrations.RegisterEvent;
     using EventManagementAPI.Core.Application.Response;
-    using System.Security.Claims;
     using MediatR;
 
     public class RegistrationEndpoints : IEndpointGroup
@@ -39,7 +39,7 @@ namespace EventManagementAPI.API.Endpoints
             return Results.Ok(ApiResponse.Success(result.Value));
         }
 
-        private static async Task<IResult> CancelEventRegistration(Guid id, ClaimsPrincipal claims,ISender sender)
+        private static async Task<IResult> CancelEventRegistration(Guid id, ClaimsPrincipal claims, ISender sender)
         {
             var result = await sender.Send(new CancelEventCommand
             {

@@ -3,13 +3,13 @@
 // </copyright>
 namespace EventManagementAPI.Core.Application.Features.Registrations.RegisterEvent
 {
+    using System.Security.Claims;
     using EventManagementAPI.Core.Application.Contracts.Messaging.Commands;
     using EventManagementAPI.Core.Application.Response;
-    using System.Security.Claims;
 
     public class RegisterEventCommand : ICommand<Result<string>>
     {
-        public ClaimsPrincipal User { get; set; }
+        public ClaimsPrincipal? User { get; set; }
 
         public Guid EventId { get; set; }
 

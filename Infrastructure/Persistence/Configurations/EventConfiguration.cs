@@ -46,5 +46,4 @@ namespace EventManagementAPI.Infrastructure.Persistence.Configurations
                 .HasConversion<string>();
         }
     }
-
 }

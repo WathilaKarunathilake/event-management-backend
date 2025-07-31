@@ -14,7 +14,7 @@ namespace EventManagementAPI.Core.Application.Extensions
 
         public static string GetUserName(this ClaimsPrincipal user)
         {
-            return user?.FindFirst(ClaimTypes.Name)?.Value ?? string.Empty;
+            return user?.FindFirst("name")?.Value ?? string.Empty;
         }
 
         public static string GetUserRole(this ClaimsPrincipal user)

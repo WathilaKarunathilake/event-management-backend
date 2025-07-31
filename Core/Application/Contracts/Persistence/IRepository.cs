@@ -4,6 +4,7 @@
 namespace EventManagementAPI.Core.Application.Contracts.Persistence
 {
     using System.Linq.Expressions;
+    using EventManagementAPI.Core.Application.DTO;
 
     public interface IRepository<T>
         where T : class
@@ -23,5 +24,7 @@ namespace EventManagementAPI.Core.Application.Contracts.Persistence
         Task<List<T>> FindAllAsync(Expression<Func<T, bool>> predicate);
 
         Task<T?> FindFirstOrDefaultAsync(Expression<Func<T, bool>> predicate);
+
+        Task<PageResultDTO<T?>> GetPagedAsync(int page, int pageSize);
     }
 }

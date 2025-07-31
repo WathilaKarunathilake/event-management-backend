@@ -6,7 +6,6 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.CancelEvent
     using AutoMapper;
     using EventManagementAPI.Core.Application.Contracts.Messaging.Commands;
     using EventManagementAPI.Core.Application.Contracts.Persistence;
-    using EventManagementAPI.Core.Application.DTO;
     using EventManagementAPI.Core.Application.Extensions;
     using EventManagementAPI.Core.Application.Response;
     using EventManagementAPI.Core.Domain.Entities;
@@ -15,11 +14,13 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.CancelEvent
     public class CancelEventCommandHandler : ICommandHandler<CancelEventCommand, Result<string>>
     {
         private readonly IRepository<Registration> registrationRepository;
+        private readonly IRepository<Event> eventRepository;
         private readonly IUnitOfWork unitOfWork;
 
-        public CancelEventCommandHandler(IRepository<Registration> registrationRepository, IUnitOfWork unitOfWork)
+        public CancelEventCommandHandler(IRepository<Registration> registrationRepository, IRepository<Event> eventRepository, IUnitOfWork unitOfWork)
         {
             this.registrationRepository = registrationRepository;
+            this.eventRepository = eventRepository;
             this.unitOfWork = unitOfWork;
         }
 
@@ -27,7 +28,7 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.CancelEvent
         {
             try
             {
-                var userIdString = request.User.GetUserId();
+                var userIdString = request.User!.GetUserId();
                 if (string.IsNullOrEmpty(userIdString) || !Guid.TryParse(userIdString, out var userId))
                 {
                     return Result<string>.Failure(DomainErrors.Auth.NotAuthenticated());
@@ -36,12 +37,20 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.CancelEvent
                 request.UserId = userId;
 
                 await this.unitOfWork.BeginTransactionAsync();
-                var registration = await this.registrationRepository.FindFirstOrDefaultAsync(x => x.EventId == request.EventId);
-
+                var registration = await this.registrationRepository.FindFirstOrDefaultAsync(x =>
+            x.EventId == request.EventId && x.UserId == userId);
+                var evt = await this.eventRepository.GetByIdAsync(request.EventId);
                 if (registration == null)
                 {
                     return Result<string>.Failure(DomainErrors.Registration.NotFoundForEvent(request.EventId));
                 }
+
+                if (evt!.StartDateTime < DateTime.UtcNow)
+                {
+                    return Result<string>.Failure(DomainErrors.Event.EventAlreadyPassed());
+                }
+
+                evt!.TotalRegistrations--;
 
                 if (registration.RegisterType == Domain.Enums.RegisterType.CANCELED)
                 {
@@ -51,6 +60,7 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.CancelEvent
                 registration.RegisterType = Domain.Enums.RegisterType.CANCELED;
 
                 await this.registrationRepository.UpdateAsync(registration);
+                await this.eventRepository.UpdateAsync(evt);
 
                 await this.unitOfWork.SaveChangesAsync(cancellationToken);
                 await this.unitOfWork.CommitAsync();

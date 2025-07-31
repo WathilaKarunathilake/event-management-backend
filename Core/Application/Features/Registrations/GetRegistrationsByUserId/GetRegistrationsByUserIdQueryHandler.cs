@@ -3,8 +3,6 @@
 // </copyright>
 namespace EventManagementAPI.Core.Application.Features.Registrations.GetRegistrationsById
 {
-    using AutoMapper;
-    using EventManagementAPI.Core.Application.Contracts.Identity;
     using EventManagementAPI.Core.Application.Contracts.Messaging.Query;
     using EventManagementAPI.Core.Application.Contracts.Persistence;
     using EventManagementAPI.Core.Application.DTO;
@@ -17,20 +15,16 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.GetRegistra
     {
         private readonly IRepository<Registration> registrationRepository;
         private readonly IRepository<Event> eventRepository;
-        private readonly IUserService userService;
-        private readonly IMapper mapper;
 
-        public GetRegistrationsByUserIdQueryHandler(IRepository<Registration> registrationRepository, IRepository<Event> eventRepository, IUserService userService, IMapper mapper)
+        public GetRegistrationsByUserIdQueryHandler(IRepository<Registration> registrationRepository, IRepository<Event> eventRepository)
         {
             this.registrationRepository = registrationRepository;
             this.eventRepository = eventRepository;
-            this.userService = userService;
-            this.mapper = mapper;
         }
 
         public async Task<Result<List<RegisteredEventsDTO>>> Handle(GetRegistrationsByUserIdQuery request, CancellationToken cancellationToken)
         {
-            var userIdString = request.User.GetUserId();
+            var userIdString = request.User!.GetUserId();
             if (string.IsNullOrEmpty(userIdString) || !Guid.TryParse(userIdString, out var userId))
             {
                 return Result<List<RegisteredEventsDTO>>.Failure(DomainErrors.Auth.NotAuthenticated());
@@ -42,8 +36,6 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.GetRegistra
 
             var eventIds = registrations.Select(r => r.EventId).Distinct().ToList();
             var events = await this.eventRepository.FindAllAsync(x => eventIds.Contains(x.Id));
-            var eventDtos = this.mapper.Map<List<RegisteredEventsDTO>>(events);
-
             var result = registrations
                 .Join(
                     events,
@@ -59,6 +51,10 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.GetRegistra
                             EventType = ev.EventType,
                             Capacity = ev.Capacity,
                             RegisterType = reg.RegisterType,
+                            CreatedBy = ev.CreatedBy,
+                            ImageUrl = ev.ImageUrl,
+                            CreatorName = ev.CreatorName,
+                            Id = ev.Id,
                         })
                 .ToList();
 

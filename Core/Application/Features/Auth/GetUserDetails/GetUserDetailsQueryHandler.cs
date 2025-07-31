@@ -1,5 +1,10 @@
-﻿namespace EventManagementAPI.Core.Application.Features.Auth.GetUserDetails
+﻿// <copyright file="GetUserDetailsQueryHandler.cs" company="Ascentic">
+// Copyright (c) Ascentic. All rights reserved.
+// </copyright>
+namespace EventManagementAPI.Core.Application.Features.Auth.GetUserDetails
 {
+    using System.Threading;
+    using System.Threading.Tasks;
     using AutoMapper;
     using EventManagementAPI.Core.Application.Contracts.Identity;
     using EventManagementAPI.Core.Application.Contracts.Messaging.Query;
@@ -7,8 +12,6 @@
     using EventManagementAPI.Core.Application.Extensions;
     using EventManagementAPI.Core.Application.Response;
     using EventManagementAPI.Core.Domain.Errors;
-    using System.Threading;
-    using System.Threading.Tasks;
 
     public class GetUserDetailsQueryHandler : IQueryHandler<GetUserDetailsQuery, Result<UserDataDTO>>
     {

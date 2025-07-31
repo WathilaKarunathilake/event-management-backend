@@ -15,6 +15,8 @@ namespace EventManagementAPI.Core.Application.Features.Events.UpdateEvent
 
         public string? Description { get; set; }
 
+        public string? ImageUrl { get; set; }
+
         public string? Location { get; set; }
 
         public DateTime StartDateTime { get; set; }

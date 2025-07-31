@@ -6,20 +6,27 @@ namespace EventManagementAPI.Core.Application.Features.Events.UpdateEvent
     using AutoMapper;
     using EventManagementAPI.Core.Application.Contracts.Messaging.Commands;
     using EventManagementAPI.Core.Application.Contracts.Persistence;
+    using EventManagementAPI.Core.Application.Features.Images.ImageUpload;
     using EventManagementAPI.Core.Application.Response;
     using EventManagementAPI.Core.Domain.Entities;
     using EventManagementAPI.Core.Domain.Errors;
+    using MediatR;
+    using Microsoft.Extensions.Logging;
 
     public class UpdateEventCommandHandler : ICommandHandler<UpdateEventCommand, Result<string>>
     {
         private readonly IRepository<Event> eventRepository;
+        private readonly ILogger<UpdateEventCommandHandler> logger;
         private readonly IUnitOfWork unitOfWork;
+        private readonly ISender sender;
         private readonly IMapper mapper;
 
-        public UpdateEventCommandHandler(IRepository<Event> eventRepository, IUnitOfWork unitOfWork, IMapper mapper)
+        public UpdateEventCommandHandler(IRepository<Event> eventRepository, ILogger<UpdateEventCommandHandler> logger, IUnitOfWork unitOfWork, ISender sender, IMapper mapper)
         {
             this.eventRepository = eventRepository;
+            this.logger = logger;
             this.unitOfWork = unitOfWork;
+            this.sender = sender;
             this.mapper = mapper;
         }
 
@@ -35,9 +42,23 @@ namespace EventManagementAPI.Core.Application.Features.Events.UpdateEvent
                     return Result<string>.Failure(DomainErrors.Event.NotFound(request.Id));
                 }
 
-                var updateEvent = this.mapper.Map<Event>(request);
-                await this.eventRepository.UpdateAsync(updateEvent);
+                this.mapper.Map(request, eventDetails);
 
+                if (!string.IsNullOrEmpty(request.ImageUrl) && !request.ImageUrl.StartsWith("http"))
+                {
+                    var result = await this.sender.Send(new ImageUploadCommand
+                    {
+                        ImageName = eventDetails.Id.ToString(),
+                        ImageUrl = request.ImageUrl,
+                    });
+
+                    if (result.IsSuccess)
+                    {
+                        eventDetails.ImageUrl = result.Value;
+                    }
+                }
+
+                await this.eventRepository.UpdateAsync(eventDetails);
                 await this.unitOfWork.SaveChangesAsync(cancellationToken);
                 await this.unitOfWork.CommitAsync();
 

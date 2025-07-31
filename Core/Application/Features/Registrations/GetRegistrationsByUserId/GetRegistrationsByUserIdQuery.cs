@@ -12,6 +12,6 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.GetRegistra
     {
         public Guid UserId { get; set; }
 
-        public ClaimsPrincipal User { get; set; }
+        public ClaimsPrincipal? User { get; set; }
     }
 }

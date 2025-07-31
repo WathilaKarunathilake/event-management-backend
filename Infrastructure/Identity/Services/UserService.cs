@@ -150,15 +150,45 @@ namespace EventManagementAPI.Infrastructure.Identity.Services
                 return null;
             }
 
+            var roles = await this.userManager.GetRolesAsync(user);
+            UserRole? role = null;
+            if (roles.Any() && Enum.TryParse<UserRole>(roles.First(), true, out var parsedRole))
+            {
+                role = parsedRole;
+            }
+
             var userData = new UserDTO
             {
                 UserId = Guid.Parse(user.Id),
                 Name = user.Name,
                 Email = user.Email,
                 PhoneNumber = user.PhoneNumber,
+                Role = role,
             };
 
             return userData;
+        }
+
+        public async Task SaveRefreshTokenAsync(string userId, string refreshToken, DateTime expiryTime)
+        {
+            var user = await this.userManager.FindByIdAsync(userId);
+            if (user != null)
+            {
+                user.RefreshToken = refreshToken;
+                user.RefreshTokenExpiryTime = expiryTime;
+                await this.userManager.UpdateAsync(user);
+            }
+        }
+
+        public async Task<bool> ValidateRefreshTokenAsync(string userId, string refreshToken)
+        {
+            var user = await this.userManager.FindByIdAsync(userId);
+            if (user == null || user.RefreshToken != refreshToken || user.RefreshTokenExpiryTime <= DateTime.UtcNow)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

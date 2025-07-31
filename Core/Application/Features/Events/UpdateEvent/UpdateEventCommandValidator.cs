@@ -28,7 +28,7 @@ namespace EventManagementAPI.Core.Application.Features.Events.UpdateEvent
                 .LessThanOrEqualTo(10000).WithMessage(DomainErrors.Event.CapacityTooLarge().Message);
 
             this.RuleFor(x => x.StartDateTime)
-                .GreaterThan(DateTime.Now).WithMessage(DomainErrors.Event.StartTimeInPast().Message);
+                .GreaterThan(DateTime.UtcNow).WithMessage(DomainErrors.Event.StartTimeInPast().Message);
 
             this.RuleFor(x => x.EndDateTime)
                 .GreaterThan(x => x.StartDateTime).WithMessage(DomainErrors.Event.EndTimeBeforeStart().Message);

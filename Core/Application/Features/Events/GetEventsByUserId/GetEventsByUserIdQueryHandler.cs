@@ -25,7 +25,7 @@ namespace EventManagementAPI.Core.Application.Features.Events.GetEventsByUserId
 
         public async Task<Result<List<EventDTO>>> Handle(GetEventsByUserIdQuery request, CancellationToken cancellationToken)
         {
-            var userIdString = request.User.GetUserId();
+            var userIdString = request.User!.GetUserId();
             if (string.IsNullOrEmpty(userIdString) || !Guid.TryParse(userIdString, out var userId))
             {
                 return Result<List<EventDTO>>.Failure(DomainErrors.Auth.NotAuthenticated());

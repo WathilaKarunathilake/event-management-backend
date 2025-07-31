@@ -5,6 +5,7 @@ namespace EventManagementAPI.Infrastructure.Identity.Services
 {
     using System.IdentityModel.Tokens.Jwt;
     using System.Security.Claims;
+    using System.Security.Cryptography;
     using System.Text;
     using EventManagementAPI.Core.Application.Contracts.Identity;
     using Microsoft.Extensions.Configuration;
@@ -44,6 +45,11 @@ namespace EventManagementAPI.Infrastructure.Identity.Services
             var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
+        }
+
+        public string GenerateRefreshToken()
+        {
+            return Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
         }
     }
 }

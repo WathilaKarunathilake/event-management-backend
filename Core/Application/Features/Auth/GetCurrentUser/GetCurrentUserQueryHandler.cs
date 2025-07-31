@@ -1,18 +1,14 @@
-﻿using EventManagementAPI.Core.Application.Contracts.Messaging.Query;
-using EventManagementAPI.Core.Application.DTO;
-using EventManagementAPI.Core.Application.Extensions;
-using EventManagementAPI.Core.Application.Response;
-using EventManagementAPI.Core.Domain.Errors;
-using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿// <copyright file="GetCurrentUserQueryHandler.cs" company="Ascentic">
+// Copyright (c) Ascentic. All rights reserved.
+// </copyright>
 namespace EventManagementAPI.Core.Application.Features.Auth.GetCurrentUser
 {
+    using EventManagementAPI.Core.Application.Contracts.Messaging.Query;
+    using EventManagementAPI.Core.Application.DTO;
+    using EventManagementAPI.Core.Application.Extensions;
+    using EventManagementAPI.Core.Application.Response;
+    using EventManagementAPI.Core.Domain.Errors;
+
     public class GetCurrentUserQueryHandler : IQueryHandler<GetCurrentUserQuery, Result<CurrentUserDTO>>
     {
         public Task<Result<CurrentUserDTO>> Handle(GetCurrentUserQuery request, CancellationToken cancellationToken)
@@ -33,5 +29,4 @@ namespace EventManagementAPI.Core.Application.Features.Auth.GetCurrentUser
             return Task.FromResult(Result<CurrentUserDTO>.Success(dto));
         }
     }
-
 }

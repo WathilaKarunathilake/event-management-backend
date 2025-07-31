@@ -43,7 +43,8 @@ namespace EventManagementAPI.Infrastructure.Persistence.Configurations
                 .HasMaxLength(20)
                 .IsRequired();
 
-            builder.HasIndex(r => new { r.UserId, r.EventId }).IsUnique();
+            builder.HasIndex(r => new { r.UserId, r.EventId, r.RegisterType })
+       .IsUnique();
         }
     }
 }

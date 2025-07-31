@@ -5,9 +5,9 @@ namespace EventManagementAPI.API.Extensions
 {
     public static class HttpResponseExtensions
     {
-        public static void SetJwtCookie(this HttpResponse response, string token, bool rememberMe)
+        public static void SetJwtCookie(this HttpResponse response, string token, string refreshToken, bool rememberMe)
         {
-            var cookieOptions = new CookieOptions
+            var accessTokenOptions = new CookieOptions
             {
                 HttpOnly = true,
                 Secure = true,
@@ -16,7 +16,20 @@ namespace EventManagementAPI.API.Extensions
                 Expires = rememberMe ? DateTimeOffset.UtcNow.AddDays(7) : null,
             };
 
-            response.Cookies.Append("jwt_token", token, cookieOptions);
+            response.Cookies.Append("jwt_token", token, accessTokenOptions);
+
+            if (rememberMe)
+            {
+                var refreshTokenOptions = new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = true,
+                    SameSite = SameSiteMode.Strict,
+                    Path = "/",
+                    Expires = rememberMe ? DateTimeOffset.UtcNow.AddDays(7) : null,
+                };
+                response.Cookies.Append("refresh_token", refreshToken, refreshTokenOptions);
+            }
         }
     }
 }

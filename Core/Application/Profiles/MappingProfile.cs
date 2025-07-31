@@ -19,7 +19,7 @@ namespace EventManagementAPI.Core.Application.Profiles
             this.CreateMap<RegisterEventCommand, Registration>().ReverseMap();
 
             this.CreateMap<Event, EventDTO>().ReverseMap();
-            this.CreateMap<UserDTO, UserDTO>().ReverseMap();
+            this.CreateMap<UserDataDTO, UserDTO>().ReverseMap();
         }
     }
 }

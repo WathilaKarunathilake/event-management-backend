@@ -13,6 +13,6 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.CancelEvent
 
         public Guid UserId { get; set; }
 
-        public ClaimsPrincipal User { get; set; }
+        public ClaimsPrincipal? User { get; set; }
     }
 }
