@@ -13,6 +13,9 @@ obj/
 *.userosscache
 *.sln.docstates
 
+.vs/
+
+
 # Auto-generated files
 *.generated.cs
 
