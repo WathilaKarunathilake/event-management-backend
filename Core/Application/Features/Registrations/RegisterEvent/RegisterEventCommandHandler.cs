@@ -88,6 +88,7 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.RegisterEve
                 }
 
                 evt.TotalRegistrations++;
+                bool isNowFull = evt.TotalRegistrations >= evt.Capacity;
 
                 var registration = this.mapper.Map<Registration>(request);
                 await this.eventRepository.UpdateAsync(evt);
@@ -117,17 +118,20 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.RegisterEve
                     Content = RegistrationEmailTemplate.Generate(evt, userDetails!, imageUrl),
                     Recipients = recipientEmails,
                 };
-
-                var inAppNotification = new NotificationMessage
-                {
-                    Type = NotificationType.Inapp,
-                    Subject = $"Maximum capacity reached !",
-                    Content = $"Maximum capacity reached for event {evt.Title}",
-                    Recipients = new List<string> { UserRole.ADMIN.ToString() },
-                };
-
-                await this.sender.Send(new NotificationSendCommand { NotificationMessage = inAppNotification });
                 await this.sender.Send(new NotificationSendCommand { NotificationMessage = email });
+
+                if (isNowFull)
+                {
+                    var inAppNotification = new NotificationMessage
+                    {
+                        Type = NotificationType.Inapp,
+                        Subject = $"Maximum capacity reached !",
+                        Content = $"Maximum capacity reached for event {evt.Title}",
+                        Recipients = new List<string> { UserRole.ADMIN.ToString() },
+                    };
+
+                    await this.sender.Send(new NotificationSendCommand { NotificationMessage = inAppNotification });
+                }
 
                 return Result<string>.Success("Registered successfully.");
             }
