@@ -11,7 +11,7 @@ namespace EventManagementAPI.API.Extensions
             {
                 HttpOnly = true,
                 Secure = true,
-                SameSite = SameSiteMode.Strict,
+                SameSite = SameSiteMode.Lax,
                 Path = "/",
                 Expires = rememberMe ? DateTimeOffset.UtcNow.AddDays(7) : null,
             };
@@ -24,7 +24,7 @@ namespace EventManagementAPI.API.Extensions
                 {
                     HttpOnly = true,
                     Secure = true,
-                    SameSite = SameSiteMode.Strict,
+                    SameSite = SameSiteMode.Lax,
                     Path = "/",
                     Expires = rememberMe ? DateTimeOffset.UtcNow.AddDays(7) : null,
                 };
