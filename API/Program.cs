@@ -11,7 +11,7 @@ public class Program
     public static async Task Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
-        var frontendOrigin = "http://localhost:5173";
+        var frontendOrigin = builder.Configuration.GetValue<string>("Frontend:Origin") !;
 
         builder.Services
             .AddCorsPolicy(frontendOrigin)
