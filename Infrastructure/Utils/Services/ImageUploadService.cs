@@ -13,7 +13,7 @@ namespace EventManagementAPI.Infrastructure.Utils.Services
 
         public ImageUploadService(IConfiguration configuration)
         {
-            var connectionString = configuration["AzureBlobStorage:ConnectionString"];
+            var connectionString = configuration.GetConnectionString("AzureBlobStorage");
             var containerName = configuration["AzureBlobStorage:ContainerName"];
 
             var blobServiceClient = new BlobServiceClient(connectionString);
