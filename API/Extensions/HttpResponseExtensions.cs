@@ -31,5 +31,20 @@ namespace EventManagementAPI.API.Extensions
                 response.Cookies.Append("refresh_token", refreshToken, refreshTokenOptions);
             }
         }
+
+        public static void DeleteJwtCookies(this HttpResponse response)
+        {
+            var cookieOptions = new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                SameSite = SameSiteMode.None,
+                Path = "/",
+                Expires = DateTimeOffset.UtcNow.AddDays(-1),
+            };
+
+            response.Cookies.Append("jwt_token", string.Empty, cookieOptions);
+            response.Cookies.Append("refresh_token", string.Empty, cookieOptions);
+        }
     }
 }

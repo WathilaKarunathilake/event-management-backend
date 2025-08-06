@@ -11,34 +11,14 @@ namespace EventManagementAPI.Infrastructure.Notification.Hubs
         public override async Task OnConnectedAsync()
         {
             var role = this.Context.User?.FindFirst(ClaimTypes.Role)?.Value;
-
-            if (role == "PUBLICUSER")
-            {
-                await this.Groups.AddToGroupAsync(this.Context.ConnectionId, "PUBLICUSER");
-            }
-
-            if (role == "ADMIN")
-            {
-                await this.Groups.AddToGroupAsync(this.Context.ConnectionId, "ADMIN");
-            }
-
+            await this.Groups.AddToGroupAsync(this.Context.ConnectionId, role);
             await base.OnConnectedAsync();
         }
 
         public override async Task OnDisconnectedAsync(Exception? exception)
         {
             var role = this.Context.User?.FindFirst(ClaimTypes.Role)?.Value;
-
-            if (role == "PUBLICUSER")
-            {
-                await this.Groups.RemoveFromGroupAsync(this.Context.ConnectionId, "PUBLICUSER");
-            }
-
-            if (role == "ADMIN")
-            {
-                await this.Groups.RemoveFromGroupAsync(this.Context.ConnectionId, "ADMIN");
-            }
-
+            await this.Groups.RemoveFromGroupAsync(this.Context.ConnectionId, role);
             await base.OnDisconnectedAsync(exception);
         }
     }

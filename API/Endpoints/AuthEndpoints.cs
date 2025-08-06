@@ -99,10 +99,9 @@ namespace EventManagementAPI.API.Endpoints
             return Results.Ok(ApiResponse.Success(result.Value));
         }
 
-        private static Task<IResult> Logout(HttpContext context)
+        private static Task<IResult> Logout(HttpResponse response)
         {
-            context.Response.Cookies.Delete("jwt_token");
-            context.Response.Cookies.Delete("refresh_token");
+            response.DeleteJwtCookies();
             return Task.FromResult(Results.Ok(ApiResponse.Success("Logged out successfully")));
         }
     }
