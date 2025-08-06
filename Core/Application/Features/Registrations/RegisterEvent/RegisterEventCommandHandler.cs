@@ -58,7 +58,6 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.RegisterEve
 
                 var userDetails = await this.userService.GetUserDetailsByIdAsync(request.UserId);
                 var evt = await this.eventRepository.GetByIdAsync(request.EventId);
-
                 if (evt is null)
                 {
                     return Result<string>.Failure(DomainErrors.Event.NotFound(request.EventId));
@@ -90,19 +89,23 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.RegisterEve
 
                 evt.TotalRegistrations++;
                 bool isNowFull = evt.TotalRegistrations >= evt.Capacity;
-
                 var registration = this.mapper.Map<Registration>(request);
+
                 await this.eventRepository.UpdateAsync(evt);
                 await this.registrationRepository.AddAsync(registration);
-
                 await this.unitOfWork.SaveChangesAsync(cancellationToken);
                 await this.unitOfWork.CommitAsync();
 
+                var timeZone = TimeZoneInfo.FindSystemTimeZoneById(
+                    OperatingSystem.IsWindows() ? "India Standard Time" : "Asia/Kolkata");
+
+                var startLocal = TimeZoneInfo.ConvertTimeFromUtc(evt.StartDateTime.ToUniversalTime(), timeZone);
+                var endLocal = TimeZoneInfo.ConvertTimeFromUtc(evt.EndDateTime.ToUniversalTime(), timeZone);
                 var fullUrl = this.eventLinkGeneratorService.GenerateEventUrl(
                     evt.Title!,
                     evt.Id.ToString(),
-                    evt.StartDateTime,
-                    evt.EndDateTime,
+                    startLocal,
+                    endLocal,
                     evt.Location!);
                 var fileName = Guid.NewGuid().ToString() + ".jpg";
                 var imageUrl = await this.iMageUploadService.UploadFileAsync(this.qRCodeGeneratorSerivice.GenerateQrCodeImageArr(fullUrl), fileName);
