@@ -21,7 +21,8 @@ namespace EventManagementAPI.Infrastructure.Utils.Services
             {
                 ["title"] = title,
                 ["refId"] = id,
-                ["date"] = start.ToString("yyyy-MM-dd"),
+                ["starting"] = start.ToString("yyyy-MM-dd"),
+                ["ending"] = start.ToString("yyyy-MM-dd"),
                 ["start"] = start.ToString("HH:mm"),
                 ["end"] = end.ToString("HH:mm"),
                 ["venue"] = location,

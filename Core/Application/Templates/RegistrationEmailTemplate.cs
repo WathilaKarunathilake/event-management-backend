@@ -10,8 +10,11 @@ namespace EventManagementAPI.Core.Application.Templates
     {
         public static string Generate(Event evt, UserDTO user, string qrCodeUrl)
         {
-            var startLocal = evt.StartDateTime.ToLocalTime();
-            var endLocal = evt.EndDateTime.ToLocalTime();
+            var timeZone = TimeZoneInfo.FindSystemTimeZoneById(
+                OperatingSystem.IsWindows() ? "India Standard Time" : "Asia/Kolkata");
+
+            var startLocal = TimeZoneInfo.ConvertTimeFromUtc(evt.StartDateTime.ToUniversalTime(), timeZone);
+            var endLocal = TimeZoneInfo.ConvertTimeFromUtc(evt.EndDateTime.ToUniversalTime(), timeZone);
 
             string startDateStr = startLocal.ToString("dddd, MMMM dd, yyyy");
             string endDateStr = endLocal.ToString("dddd, MMMM dd, yyyy");
