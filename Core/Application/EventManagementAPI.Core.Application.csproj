@@ -23,7 +23,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\Infrastructure\Notification\EventManagementAPI.Infrastructure.Notification.csproj" />
 	  <ProjectReference Include="..\Domain\EventManagementAPI.Core.Domain.csproj" />
 	</ItemGroup>
 </Project>

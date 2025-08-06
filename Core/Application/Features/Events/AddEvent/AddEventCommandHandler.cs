@@ -7,6 +7,7 @@ namespace EventManagementAPI.Core.Application.Features.Events.AddEvent
     using EventManagementAPI.Core.Application.Contracts.Identity;
     using EventManagementAPI.Core.Application.Contracts.Messaging.Commands;
     using EventManagementAPI.Core.Application.Contracts.Persistence;
+    using EventManagementAPI.Core.Application.DTO;
     using EventManagementAPI.Core.Application.Extensions;
     using EventManagementAPI.Core.Application.Features.Images.ImageUpload;
     using EventManagementAPI.Core.Application.Features.Notification.NotificationSendCommand;
@@ -14,8 +15,6 @@ namespace EventManagementAPI.Core.Application.Features.Events.AddEvent
     using EventManagementAPI.Core.Domain.Entities;
     using EventManagementAPI.Core.Domain.Enums;
     using EventManagementAPI.Core.Domain.Errors;
-    using EventManagementAPI.Infrastructure.Notification.Enums;
-    using EventManagementAPI.Infrastructure.Notification.Models;
     using MediatR;
 
     public class AddEventCommandHandler : ICommandHandler<AddEventCommand, Result<string>>
@@ -78,7 +77,7 @@ namespace EventManagementAPI.Core.Application.Features.Events.AddEvent
                     }
                 }
 
-                var inApp = new NotificationMessage
+                var inApp = new NotificationMessageDTO
                 {
                     Type = NotificationType.Inapp,
                     Subject = "New event added !",

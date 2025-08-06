@@ -8,6 +8,7 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.RegisterEve
     using EventManagementAPI.Core.Application.Contracts.Messaging.Commands;
     using EventManagementAPI.Core.Application.Contracts.Persistence;
     using EventManagementAPI.Core.Application.Contracts.Utilities;
+    using EventManagementAPI.Core.Application.DTO;
     using EventManagementAPI.Core.Application.Extensions;
     using EventManagementAPI.Core.Application.Features.Notification.NotificationSendCommand;
     using EventManagementAPI.Core.Application.Response;
@@ -15,8 +16,6 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.RegisterEve
     using EventManagementAPI.Core.Domain.Entities;
     using EventManagementAPI.Core.Domain.Enums;
     using EventManagementAPI.Core.Domain.Errors;
-    using EventManagementAPI.Infrastructure.Notification.Enums;
-    using EventManagementAPI.Infrastructure.Notification.Models;
     using MediatR;
 
     public class RegisterEventCommandHandler : ICommandHandler<RegisterEventCommand, Result<string>>
@@ -29,8 +28,9 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.RegisterEve
         private readonly IIMageUploadService iMageUploadService;
         private readonly IMapper mapper;
         private readonly IUserService userService;
+        private readonly IEventLinkGeneratorService eventLinkGeneratorService;
 
-        public RegisterEventCommandHandler(IRepository<Event> eventRepository, IRepository<Registration> registrationRepository, IQRCodeGeneratorSerivice qRCodeGeneratorSerivice, IUnitOfWork unitOfWork, ISender sender, IIMageUploadService iMageUploadService, IMapper mapper, IUserService userService)
+        public RegisterEventCommandHandler(IRepository<Event> eventRepository, IRepository<Registration> registrationRepository, IQRCodeGeneratorSerivice qRCodeGeneratorSerivice, IUnitOfWork unitOfWork, ISender sender, IIMageUploadService iMageUploadService, IMapper mapper, IUserService userService, IEventLinkGeneratorService eventLinkGeneratorService)
         {
             this.eventRepository = eventRepository;
             this.registrationRepository = registrationRepository;
@@ -40,6 +40,7 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.RegisterEve
             this.iMageUploadService = iMageUploadService;
             this.mapper = mapper;
             this.userService = userService;
+            this.eventLinkGeneratorService = eventLinkGeneratorService;
         }
 
         public async Task<Result<string>> Handle(RegisterEventCommand request, CancellationToken cancellationToken)
@@ -97,21 +98,19 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.RegisterEve
                 await this.unitOfWork.SaveChangesAsync(cancellationToken);
                 await this.unitOfWork.CommitAsync();
 
-                string qrCodeText = $"""
-                    Event: {evt.Title}
-                    Reference ID: {evt.Id}
-                    Date: {evt.StartDateTime:yyyy-MM-dd}
-                    Time: {evt.StartDateTime:HH:mm} - {evt.EndDateTime:HH:mm} UTC
-                    Venue: {evt.Location}
-                """.ReplaceLineEndings("\n");
-
+                var fullUrl = this.eventLinkGeneratorService.GenerateEventUrl(
+                    evt.Title!,
+                    evt.Id.ToString(),
+                    evt.StartDateTime,
+                    evt.EndDateTime,
+                    evt.Location!);
                 var fileName = Guid.NewGuid().ToString() + ".jpg";
-                var imageUrl = await this.iMageUploadService.UploadFileAsync(this.qRCodeGeneratorSerivice.GenerateQrCodeImageArr(qrCodeText), fileName);
+                var imageUrl = await this.iMageUploadService.UploadFileAsync(this.qRCodeGeneratorSerivice.GenerateQrCodeImageArr(fullUrl), fileName);
 
                 var recipientEmails = new List<string> { request.Email!, userDetails!.Email! }
                     .Distinct(StringComparer.OrdinalIgnoreCase)
                     .ToList();
-                var email = new NotificationMessage
+                var email = new NotificationMessageDTO
                 {
                     Type = NotificationType.Email,
                     Subject = $"Thank you for registering - {evt.Title} !",
@@ -122,7 +121,7 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.RegisterEve
 
                 if (isNowFull)
                 {
-                    var inAppNotification = new NotificationMessage
+                    var inAppNotification = new NotificationMessageDTO
                     {
                         Type = NotificationType.Inapp,
                         Subject = $"Maximum capacity reached !",

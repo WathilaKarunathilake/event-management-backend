@@ -1,11 +1,11 @@
-﻿// <copyright file="NotificationMessage.cs" company="Ascentic">
+﻿// <copyright file="NotificationMessageDTO.cs" company="Ascentic">
 // Copyright (c) Ascentic. All rights reserved.
 // </copyright>
-namespace EventManagementAPI.Infrastructure.Notification.Models
+namespace EventManagementAPI.Core.Application.DTO
 {
-    using EventManagementAPI.Infrastructure.Notification.Enums;
+    using EventManagementAPI.Core.Domain.Enums;
 
-    public class NotificationMessage
+    public class NotificationMessageDTO
     {
         public string? Subject { get; set; }
 

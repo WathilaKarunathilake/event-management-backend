@@ -3,8 +3,8 @@
 // </copyright>
 using EventManagementAPI.API.Extensions;
 using EventManagementAPI.Infrastructure.Identity.Extensions;
-using EventManagementAPI.Infrastructure.Notification.Hubs;
 using EventManagementAPI.Infrastructure.Utils.Logging;
+using WathilaKarunathilake.Notification.Hubs;
 
 public class Program
 {
