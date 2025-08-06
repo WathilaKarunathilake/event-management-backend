@@ -6,6 +6,7 @@ namespace EventManagementAPI.Infrastructure.Identity.Services
     using EventManagementAPI.Core.Application.Contracts.Identity;
     using EventManagementAPI.Core.Application.DTO;
     using EventManagementAPI.Core.Domain.Enums;
+    using EventManagementAPI.Infrastructure.Identity.Factories;
     using EventManagementAPI.Infrastructure.Identity.Models;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
@@ -21,8 +22,7 @@ namespace EventManagementAPI.Infrastructure.Identity.Services
 
         public async Task AddToRoleAsync(string email, string role)
         {
-            var users = await this.userManager.Users.Where(u => u.Email == email).ToListAsync();
-            var user = users.FirstOrDefault();
+            var user = await this.userManager.Users.FirstOrDefaultAsync(u => u.Email == email);
             if (user != null)
             {
                 await this.userManager.AddToRoleAsync(user, role);
@@ -31,8 +31,7 @@ namespace EventManagementAPI.Infrastructure.Identity.Services
 
         public async Task<bool> CheckPasswordAsync(string email, string password)
         {
-            var users = await this.userManager.Users.Where(u => u.Email == email).ToListAsync();
-            var user = users.FirstOrDefault();
+            var user = await this.userManager.Users.FirstOrDefaultAsync(u => u.Email == email);
             if (user == null)
             {
                 return false;
@@ -46,44 +45,26 @@ namespace EventManagementAPI.Infrastructure.Identity.Services
             var existingUser = await this.userManager.Users.FirstOrDefaultAsync(u => u.Email == email);
             if (existingUser != null)
             {
-                return new UserDTO { Succeeded = false, Errors = "User already exists with email" };
+                return UserDTOFactory.Failed("User already exist with the email provided");
             }
 
-            var user = new ApplicationUser
-            {
-                UserName = email,
-                Name = username,
-                Email = email,
-                PhoneNumber = phoneNumber,
-            };
-
+            var user = UserFactory.Create(username, email, phoneNumber);
             var result = await this.userManager.CreateAsync(user, password);
 
             if (!result.Succeeded)
             {
-                string errorMessages = string.Join("; ", result.Errors.Select(e => e.Description));
-                return new UserDTO { Succeeded = false, Errors = errorMessages };
+                string errorMessage = result.Errors.Select(e => e.Description).FirstOrDefault() ?? "Unknown error";
+                return UserDTOFactory.Failed(errorMessage);
             }
 
             var roleResult = await this.userManager.AddToRoleAsync(user, role.ToString());
             if (!roleResult.Succeeded)
             {
                 string roleErrors = string.Join("; ", roleResult.Errors.Select(e => e.Description));
-                return new UserDTO
-                {
-                    Errors = $"User created, but failed to assign role: {roleErrors}",
-                    Succeeded = false,
-                };
+                return UserDTOFactory.Failed($"User created, but failed to assign role: {roleErrors}");
             }
 
-            return new UserDTO
-            {
-                Name = username,
-                Email = email,
-                Role = role,
-                Succeeded = true,
-                UserId = Guid.Parse(user.Id),
-            };
+            return UserDTOFactory.FromApplicationUser(user, role);
         }
 
         public async Task<string> GetEmailFromId(string id)
@@ -94,33 +75,14 @@ namespace EventManagementAPI.Infrastructure.Identity.Services
 
         public async Task<UserDTO> GetUserDetailsFromEmail(string email)
         {
-            var users = await this.userManager.Users.Where(u => u.Email == email).ToListAsync();
-            var existingUser = users.FirstOrDefault();
+            var existingUser = await this.userManager.Users.FirstOrDefaultAsync(u => u.Email == email);
             if (existingUser == null)
             {
-                return new UserDTO
-                {
-                    Errors = "User not found.",
-                    Succeeded = false,
-                    UserId = Guid.Empty,
-                };
+                return UserDTOFactory.Failed("User not found.");
             }
 
             var roles = await this.userManager.GetRolesAsync(existingUser);
-
-            UserRole? parsedRole = null;
-            if (Enum.TryParse<UserRole>(roles.FirstOrDefault(), ignoreCase: true, out var roleEnum))
-            {
-                parsedRole = roleEnum;
-            }
-
-            return new UserDTO
-            {
-                Name = existingUser.Name,
-                UserId = Guid.Parse(existingUser.Id),
-                Email = existingUser.Email,
-                Role = parsedRole,
-            };
+            return UserDTOFactory.FromApplicationUser(existingUser, roles.FirstOrDefault());
         }
 
         public async Task<List<UserDTO>> GetUsersByIdsAsync(List<Guid> userIds)
@@ -131,15 +93,13 @@ namespace EventManagementAPI.Infrastructure.Identity.Services
                 .Where(u => userIdStrings.Contains(u.Id))
                 .ToListAsync();
 
-            var userDataList = users.Select(u => new UserDTO
+            var userDtos = await Task.WhenAll(users.Select(async user =>
             {
-                UserId = Guid.Parse(u.Id),
-                Name = u.Name,
-                Email = u.Email,
-                PhoneNumber = u.PhoneNumber,
-            }).ToList();
-
-            return userDataList;
+                var roles = await this.userManager.GetRolesAsync(user);
+                var primaryRole = roles.FirstOrDefault();
+                return UserDTOFactory.FromApplicationUser(user, primaryRole);
+            }));
+            return userDtos.ToList();
         }
 
         public async Task<UserDTO?> GetUserDetailsByIdAsync(Guid userId)
@@ -151,21 +111,7 @@ namespace EventManagementAPI.Infrastructure.Identity.Services
             }
 
             var roles = await this.userManager.GetRolesAsync(user);
-            UserRole? role = null;
-            if (roles.Any() && Enum.TryParse<UserRole>(roles.First(), true, out var parsedRole))
-            {
-                role = parsedRole;
-            }
-
-            var userData = new UserDTO
-            {
-                UserId = Guid.Parse(user.Id),
-                Name = user.Name,
-                Email = user.Email,
-                PhoneNumber = user.PhoneNumber,
-                Role = role,
-            };
-
+            var userData = UserDTOFactory.FromApplicationUser(user, roles.FirstOrDefault());
             return userData;
         }
 
@@ -174,8 +120,7 @@ namespace EventManagementAPI.Infrastructure.Identity.Services
             var user = await this.userManager.FindByIdAsync(userId);
             if (user != null)
             {
-                user.RefreshToken = refreshToken;
-                user.RefreshTokenExpiryTime = expiryTime;
+                user.SetRefreshToken(refreshToken, expiryTime);
                 await this.userManager.UpdateAsync(user);
             }
         }
