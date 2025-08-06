@@ -4,15 +4,15 @@
 namespace EventManagementAPI.Core.Application.Features.Notification.NotificationSendCommand
 {
     using EventManagementAPI.Core.Application.Contracts.Messaging.Commands;
+    using EventManagementAPI.Core.Application.Contracts.Notification;
     using EventManagementAPI.Core.Application.Response;
     using EventManagementAPI.Core.Domain.Errors;
-    using EventManagementAPI.Infrastructure.Notification.Contracts;
 
     public class NotificationSendCommandHandler : ICommandHandler<NotificationSendCommand, Result<bool>>
     {
-        private readonly INotificationService notification;
+        private readonly INotificationSenderService notification;
 
-        public NotificationSendCommandHandler(INotificationService notification)
+        public NotificationSendCommandHandler(INotificationSenderService notification)
         {
             this.notification = notification;
         }

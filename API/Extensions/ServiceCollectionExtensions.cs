@@ -6,13 +6,13 @@ namespace EventManagementAPI.API.Extensions
     using System.Text;
     using EventManagementAPI.Core.Application.Behaviours;
     using EventManagementAPI.Core.Application.Contracts.Identity;
+    using EventManagementAPI.Core.Application.Contracts.Notification;
     using EventManagementAPI.Core.Application.Contracts.Persistence;
     using EventManagementAPI.Core.Application.Contracts.Utilities;
     using EventManagementAPI.Core.Application.Profiles;
     using EventManagementAPI.Infrastructure.Identity.Context;
     using EventManagementAPI.Infrastructure.Identity.Models;
     using EventManagementAPI.Infrastructure.Identity.Services;
-    using EventManagementAPI.Infrastructure.Notification;
     using EventManagementAPI.Infrastructure.Persistence.Context;
     using EventManagementAPI.Infrastructure.Persistence.Repository;
     using EventManagementAPI.Infrastructure.Persistence.UnitOfWork;
@@ -23,6 +23,7 @@ namespace EventManagementAPI.API.Extensions
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.IdentityModel.Tokens;
+    using WathilaKarunathilake.Notification;
 
     public static class ServiceCollectionExtensions
     {
@@ -75,6 +76,7 @@ namespace EventManagementAPI.API.Extensions
 
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
+            services.AddSingleton<IEventLinkGeneratorService, EventLinkGeneratorService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IEventRepository, EventRepository>();
@@ -83,6 +85,7 @@ namespace EventManagementAPI.API.Extensions
             services.AddScoped<IJwtTokenGenerateService, JwtTokenGenerateService>();
             services.AddScoped<IJwtParserService, JwtParserService>();
             services.AddScoped<IQRCodeGeneratorSerivice, QRCodeGeneratorService>();
+            services.AddScoped<INotificationSenderService, NotificationSenderService>();
 
             services.AddValidatorsFromAssemblyContaining<MappingProfile>();
 

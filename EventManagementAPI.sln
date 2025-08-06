@@ -31,10 +31,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventManagementAPI.Infrastr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventManagementAPI.Infrastructure.Utils", "Infrastructure\Utils\EventManagementAPI.Infrastructure.Utils.csproj", "{861157DB-6E55-081D-C041-29EFC389B6D7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notification", "Notification", "{986425B2-5D4C-4DD9-BA21-C8045ECB2108}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventManagementAPI.Infrastructure.Notification", "Infrastructure\Notification\EventManagementAPI.Infrastructure.Notification.csproj", "{9284847E-FE2C-928E-967D-D44E02C597C4}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,10 +61,6 @@ Global
 		{861157DB-6E55-081D-C041-29EFC389B6D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{861157DB-6E55-081D-C041-29EFC389B6D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{861157DB-6E55-081D-C041-29EFC389B6D7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9284847E-FE2C-928E-967D-D44E02C597C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9284847E-FE2C-928E-967D-D44E02C597C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9284847E-FE2C-928E-967D-D44E02C597C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9284847E-FE2C-928E-967D-D44E02C597C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,8 +77,6 @@ Global
 		{7A1A9BE1-DABC-45B8-4E3C-A28D544389B6} = {4ADC6851-4ED7-4E80-BEEE-554E74215878}
 		{79457A33-3940-7728-453A-41E176DCDF20} = {47B30FEE-B72C-450B-95BF-D8BA09B3D6E6}
 		{861157DB-6E55-081D-C041-29EFC389B6D7} = {E50EBA3B-4FED-4C3B-A64B-E94E940D589B}
-		{986425B2-5D4C-4DD9-BA21-C8045ECB2108} = {A9BDE4CA-4BD9-4745-8E17-BB1792BE001D}
-		{9284847E-FE2C-928E-967D-D44E02C597C4} = {986425B2-5D4C-4DD9-BA21-C8045ECB2108}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4414A25E-DF33-4728-92F8-10981BA76AB1}
