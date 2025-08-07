@@ -51,6 +51,7 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.GetRegistra
                             EventType = ev.EventType,
                             Capacity = ev.Capacity,
                             RegisterType = reg.RegisterType,
+                            TotalRegistrations = ev.TotalRegistrations,
                             CreatedBy = ev.CreatedBy,
                             ImageUrl = ev.ImageUrl,
                             CreatorName = ev.CreatorName,
