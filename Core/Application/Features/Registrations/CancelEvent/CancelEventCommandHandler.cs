@@ -3,7 +3,6 @@
 // </copyright>
 namespace EventManagementAPI.Core.Application.Features.Registrations.CancelEvent
 {
-    using AutoMapper;
     using EventManagementAPI.Core.Application.Contracts.Messaging.Commands;
     using EventManagementAPI.Core.Application.Contracts.Persistence;
     using EventManagementAPI.Core.Application.Extensions;
@@ -38,7 +37,7 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.CancelEvent
 
                 await this.unitOfWork.BeginTransactionAsync();
                 var registration = await this.registrationRepository.FindFirstOrDefaultAsync(x =>
-                    x.EventId == request.EventId && x.UserId == userId && x.RegisterType == Domain.Enums.RegisterType.REGISTERED);
+                    x.EventId == request.EventId && x.UserId == userId);
 
                 var evt = await this.eventRepository.GetByIdAsync(request.EventId);
                 if (registration == null)
@@ -67,17 +66,10 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.CancelEvent
                 await this.unitOfWork.CommitAsync();
                 return Result<string>.Success("Event canceled successfully!");
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 await this.unitOfWork.RollbackAsync();
-                var errorMessage = e.Message;
-                if (e.InnerException != null)
-                {
-                    errorMessage += " | Inner: " + e.InnerException.Message;
-                }
-
-                return Result<string>.Success(errorMessage);
-                //return Result<string>.Failure(DomainErrors.Transaction.TransactionFailed());
+                return Result<string>.Failure(DomainErrors.Transaction.TransactionFailed());
             }
          }
     }
