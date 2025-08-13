@@ -38,7 +38,7 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.CancelEvent
 
                 await this.unitOfWork.BeginTransactionAsync();
                 var registration = await this.registrationRepository.FindFirstOrDefaultAsync(x =>
-            x.EventId == request.EventId && x.UserId == userId && x.RegisterType == Domain.Enums.RegisterType.REGISTERED);
+                    x.EventId == request.EventId && x.UserId == userId && x.RegisterType == Domain.Enums.RegisterType.REGISTERED);
 
                 var evt = await this.eventRepository.GetByIdAsync(request.EventId);
                 if (registration == null)
@@ -51,7 +51,7 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.CancelEvent
                     return Result<string>.Failure(DomainErrors.Event.EventAlreadyPassed());
                 }
 
-                evt!.TotalRegistrations--;
+                evt.TotalRegistrations = Math.Max(0, evt.TotalRegistrations - 1);
 
                 if (registration.RegisterType == Domain.Enums.RegisterType.CANCELED)
                 {
@@ -70,7 +70,13 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.CancelEvent
             catch (Exception e)
             {
                 await this.unitOfWork.RollbackAsync();
-                return Result<string>.Success(e.Message);
+                var errorMessage = e.Message;
+                if (e.InnerException != null)
+                {
+                    errorMessage += " | Inner: " + e.InnerException.Message;
+                }
+
+                return Result<string>.Success(errorMessage);
                 //return Result<string>.Failure(DomainErrors.Transaction.TransactionFailed());
             }
          }
