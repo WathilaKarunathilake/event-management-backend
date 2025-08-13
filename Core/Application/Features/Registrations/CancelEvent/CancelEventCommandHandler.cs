@@ -38,7 +38,7 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.CancelEvent
 
                 await this.unitOfWork.BeginTransactionAsync();
                 var registration = await this.registrationRepository.FindFirstOrDefaultAsync(x =>
-            x.EventId == request.EventId && x.UserId == userId);
+            x.EventId == request.EventId && x.UserId == userId && x.RegisterType == Domain.Enums.RegisterType.REGISTERED);
                 var evt = await this.eventRepository.GetByIdAsync(request.EventId);
                 if (registration == null)
                 {

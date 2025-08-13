@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CFEE9E14-70BC-3101-32BA-9CA585FAE9E7}|Core\\Application\\EventManagementAPI.Core.Application.csproj|c:\\users\\wathilakarunathilake\\source\\repos\\eventmanagementapi\\core\\application\\features\\registrations\\cancelevent\\canceleventcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFEE9E14-70BC-3101-32BA-9CA585FAE9E7}|Core\\Application\\EventManagementAPI.Core.Application.csproj|solutionrelative:core\\application\\features\\registrations\\cancelevent\\canceleventcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFEE9E14-70BC-3101-32BA-9CA585FAE9E7}|Core\\Application\\EventManagementAPI.Core.Application.csproj|c:\\users\\wathilakarunathilake\\source\\repos\\eventmanagementapi\\core\\application\\features\\registrations\\registerevent\\registereventcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFEE9E14-70BC-3101-32BA-9CA585FAE9E7}|Core\\Application\\EventManagementAPI.Core.Application.csproj|solutionrelative:core\\application\\features\\registrations\\registerevent\\registereventcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFEE9E14-70BC-3101-32BA-9CA585FAE9E7}|Core\\Application\\EventManagementAPI.Core.Application.csproj|c:\\users\\wathilakarunathilake\\source\\repos\\eventmanagementapi\\core\\application\\features\\events\\deleteevent\\deleteeventcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFEE9E14-70BC-3101-32BA-9CA585FAE9E7}|Core\\Application\\EventManagementAPI.Core.Application.csproj|solutionrelative:core\\application\\features\\events\\deleteevent\\deleteeventcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49CF7F42-5936-7191-EDB9-F0C9F4CE0945}|API\\EventManagementAPI.API.csproj|c:\\users\\wathilakarunathilake\\source\\repos\\eventmanagementapi\\api\\extensions\\iendpointgroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49CF7F42-5936-7191-EDB9-F0C9F4CE0945}|API\\EventManagementAPI.API.csproj|solutionrelative:api\\extensions\\iendpointgroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CFEE9E14-70BC-3101-32BA-9CA585FAE9E7}|Core\\Application\\EventManagementAPI.Core.Application.csproj|c:\\users\\wathilakarunathilake\\source\\repos\\eventmanagementapi\\core\\application\\features\\registrations\\getregistrationsbyuserid\\getregistrationsbyuseridqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CFEE9E14-70BC-3101-32BA-9CA585FAE9E7}|Core\\Application\\EventManagementAPI.Core.Application.csproj|solutionrelative:core\\application\\features\\registrations\\getregistrationsbyuserid\\getregistrationsbyuseridqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -19,16 +35,8 @@
       "RelativeMoniker": "D:0:0:{49CF7F42-5936-7191-EDB9-F0C9F4CE0945}|API\\EventManagementAPI.API.csproj|solutionrelative:api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CFEE9E14-70BC-3101-32BA-9CA585FAE9E7}|Core\\Application\\EventManagementAPI.Core.Application.csproj|c:\\users\\wathilakarunathilake\\source\\repos\\eventmanagementapi\\core\\application\\features\\events\\deleteevent\\deleteeventcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFEE9E14-70BC-3101-32BA-9CA585FAE9E7}|Core\\Application\\EventManagementAPI.Core.Application.csproj|solutionrelative:core\\application\\features\\events\\deleteevent\\deleteeventcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CFEE9E14-70BC-3101-32BA-9CA585FAE9E7}|Core\\Application\\EventManagementAPI.Core.Application.csproj|c:\\users\\wathilakarunathilake\\source\\repos\\eventmanagementapi\\core\\application\\features\\events\\geteventssummary\\geteventssummaryqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CFEE9E14-70BC-3101-32BA-9CA585FAE9E7}|Core\\Application\\EventManagementAPI.Core.Application.csproj|solutionrelative:core\\application\\features\\events\\geteventssummary\\geteventssummaryqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CFEE9E14-70BC-3101-32BA-9CA585FAE9E7}|Core\\Application\\EventManagementAPI.Core.Application.csproj|c:\\users\\wathilakarunathilake\\source\\repos\\eventmanagementapi\\core\\application\\features\\registrations\\registerevent\\registereventcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFEE9E14-70BC-3101-32BA-9CA585FAE9E7}|Core\\Application\\EventManagementAPI.Core.Application.csproj|solutionrelative:core\\application\\features\\registrations\\registerevent\\registereventcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CFEE9E14-70BC-3101-32BA-9CA585FAE9E7}|Core\\Application\\EventManagementAPI.Core.Application.csproj|c:\\users\\wathilakarunathilake\\source\\repos\\eventmanagementapi\\core\\application\\templates\\registrationemailtemplate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -73,10 +81,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{49CF7F42-5936-7191-EDB9-F0C9F4CE0945}|API\\EventManagementAPI.API.csproj|c:\\users\\wathilakarunathilake\\source\\repos\\eventmanagementapi\\api\\extensions\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{49CF7F42-5936-7191-EDB9-F0C9F4CE0945}|API\\EventManagementAPI.API.csproj|solutionrelative:api\\extensions\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49CF7F42-5936-7191-EDB9-F0C9F4CE0945}|API\\EventManagementAPI.API.csproj|c:\\users\\wathilakarunathilake\\source\\repos\\eventmanagementapi\\api\\extensions\\iendpointgroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49CF7F42-5936-7191-EDB9-F0C9F4CE0945}|API\\EventManagementAPI.API.csproj|solutionrelative:api\\extensions\\iendpointgroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CFEE9E14-70BC-3101-32BA-9CA585FAE9E7}|Core\\Application\\EventManagementAPI.Core.Application.csproj|c:\\users\\wathilakarunathilake\\source\\repos\\eventmanagementapi\\core\\application\\features\\events\\addevent\\addeventcommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -253,10 +257,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{CFEE9E14-70BC-3101-32BA-9CA585FAE9E7}|Core\\Application\\EventManagementAPI.Core.Application.csproj|c:\\users\\wathilakarunathilake\\source\\repos\\eventmanagementapi\\core\\application\\dto\\pageresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CFEE9E14-70BC-3101-32BA-9CA585FAE9E7}|Core\\Application\\EventManagementAPI.Core.Application.csproj|solutionrelative:core\\application\\dto\\pageresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CFEE9E14-70BC-3101-32BA-9CA585FAE9E7}|Core\\Application\\EventManagementAPI.Core.Application.csproj|c:\\users\\wathilakarunathilake\\source\\repos\\eventmanagementapi\\core\\application\\features\\registrations\\cancelevent\\canceleventcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFEE9E14-70BC-3101-32BA-9CA585FAE9E7}|Core\\Application\\EventManagementAPI.Core.Application.csproj|solutionrelative:core\\application\\features\\registrations\\cancelevent\\canceleventcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CFEE9E14-70BC-3101-32BA-9CA585FAE9E7}|Core\\Application\\EventManagementAPI.Core.Application.csproj|c:\\users\\wathilakarunathilake\\source\\repos\\eventmanagementapi\\core\\application\\features\\images\\imageupload\\imageuploadcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -491,224 +491,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "API\\appsettings.Development.json",
-              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\appsettings.Development.json",
-              "RelativeToolTip": "API\\appsettings.Development.json",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAwAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-28T04:46:16.993Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\appsettings.json",
-              "RelativeDocumentMoniker": "API\\appsettings.json",
-              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\appsettings.json",
-              "RelativeToolTip": "API\\appsettings.json",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAAAA0AAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-28T04:46:19.643Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "API\\Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\Properties\\launchSettings.json",
-              "RelativeToolTip": "API\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-28T09:57:28.956Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GetRegistrationsByUserIdQueryHandler.cs",
-              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Registrations\\GetRegistrationsByUserId\\GetRegistrationsByUserIdQueryHandler.cs",
-              "RelativeDocumentMoniker": "Core\\Application\\Features\\Registrations\\GetRegistrationsByUserId\\GetRegistrationsByUserIdQueryHandler.cs",
-              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Registrations\\GetRegistrationsByUserId\\GetRegistrationsByUserIdQueryHandler.cs",
-              "RelativeToolTip": "Core\\Application\\Features\\Registrations\\GetRegistrationsByUserId\\GetRegistrationsByUserIdQueryHandler.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAAADEAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T10:14:11.646Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DeleteEventCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Events\\DeleteEvent\\DeleteEventCommandHandler.cs",
-              "RelativeDocumentMoniker": "Core\\Application\\Features\\Events\\DeleteEvent\\DeleteEventCommandHandler.cs",
-              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Events\\DeleteEvent\\DeleteEventCommandHandler.cs",
-              "RelativeToolTip": "Core\\Application\\Features\\Events\\DeleteEvent\\DeleteEventCommandHandler.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAjwEIAAABsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T10:11:58.906Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "GetEventsSummaryQueryHandler.cs",
-              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Events\\GetEventsSummary\\GetEventsSummaryQueryHandler.cs",
-              "RelativeDocumentMoniker": "Core\\Application\\Features\\Events\\GetEventsSummary\\GetEventsSummaryQueryHandler.cs",
-              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Events\\GetEventsSummary\\GetEventsSummaryQueryHandler.cs",
-              "RelativeToolTip": "Core\\Application\\Features\\Events\\GetEventsSummary\\GetEventsSummaryQueryHandler.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAewCIAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T07:19:16.375Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "RegisterEventCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommandHandler.cs",
-              "RelativeDocumentMoniker": "Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommandHandler.cs",
-              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommandHandler.cs",
-              "RelativeToolTip": "Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommandHandler.cs",
-              "ViewState": "AgIAAFkAAAAAAAAAAAAjwGUAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T06:00:03.732Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "RegistrationEmailTemplate.cs",
-              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Templates\\RegistrationEmailTemplate.cs",
-              "RelativeDocumentMoniker": "Core\\Application\\Templates\\RegistrationEmailTemplate.cs",
-              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Templates\\RegistrationEmailTemplate.cs",
-              "RelativeToolTip": "Core\\Application\\Templates\\RegistrationEmailTemplate.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAWwBAAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-30T04:38:20.687Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "RegisterEventCommandValidator.cs",
-              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommandValidator.cs",
-              "RelativeDocumentMoniker": "Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommandValidator.cs",
-              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommandValidator.cs",
-              "RelativeToolTip": "Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommandValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T10:26:09.977Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "RegisterEventCommand.cs",
-              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommand.cs",
-              "RelativeDocumentMoniker": "Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommand.cs",
-              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommand.cs",
-              "RelativeToolTip": "Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T10:26:09.269Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "IEventLinkGeneratorService.cs",
-              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Contracts\\Utilities\\IEventLinkGeneratorService.cs",
-              "RelativeDocumentMoniker": "Core\\Application\\Contracts\\Utilities\\IEventLinkGeneratorService.cs",
-              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Contracts\\Utilities\\IEventLinkGeneratorService.cs",
-              "RelativeToolTip": "Core\\Application\\Contracts\\Utilities\\IEventLinkGeneratorService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T09:33:33.862Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "EventLinkGeneratorService.cs",
-              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Infrastructure\\Utils\\Services\\EventLinkGeneratorService.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Utils\\Services\\EventLinkGeneratorService.cs",
-              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Infrastructure\\Utils\\Services\\EventLinkGeneratorService.cs",
-              "RelativeToolTip": "Infrastructure\\Utils\\Services\\EventLinkGeneratorService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T09:34:00.188Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "AddEventCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Events\\AddEvent\\AddEventCommandHandler.cs",
-              "RelativeDocumentMoniker": "Core\\Application\\Features\\Events\\AddEvent\\AddEventCommandHandler.cs",
-              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Events\\AddEvent\\AddEventCommandHandler.cs",
-              "RelativeToolTip": "Core\\Application\\Features\\Events\\AddEvent\\AddEventCommandHandler.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAjwEoAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T10:11:54.019Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ImageUploadService.cs",
-              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Infrastructure\\Utils\\Services\\ImageUploadService.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Utils\\Services\\ImageUploadService.cs",
-              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Infrastructure\\Utils\\Services\\ImageUploadService.cs",
-              "RelativeToolTip": "Infrastructure\\Utils\\Services\\ImageUploadService.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T05:17:58.899Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "NotificationType.cs",
-              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Domain\\Enums\\NotificationType.cs",
-              "RelativeDocumentMoniker": "Core\\Domain\\Enums\\NotificationType.cs",
-              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Domain\\Enums\\NotificationType.cs",
-              "RelativeToolTip": "Core\\Domain\\Enums\\NotificationType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T09:12:15.269Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "NotificationSendCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Notification\\NotificationSendCommand\\NotificationSendCommandHandler.cs",
-              "RelativeDocumentMoniker": "Core\\Application\\Features\\Notification\\NotificationSendCommand\\NotificationSendCommandHandler.cs",
-              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Notification\\NotificationSendCommand\\NotificationSendCommandHandler.cs",
-              "RelativeToolTip": "Core\\Application\\Features\\Notification\\NotificationSendCommand\\NotificationSendCommandHandler.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwB0AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T10:12:43.26Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "NotificationSendCommand.cs",
-              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Notification\\NotificationSendCommand\\NotificationSendCommand.cs",
-              "RelativeDocumentMoniker": "Core\\Application\\Features\\Notification\\NotificationSendCommand\\NotificationSendCommand.cs",
-              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Notification\\NotificationSendCommand\\NotificationSendCommand.cs",
-              "RelativeToolTip": "Core\\Application\\Features\\Notification\\NotificationSendCommand\\NotificationSendCommand.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAWwAsAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T10:12:41.323Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ServiceCollectionExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\Extensions\\ServiceCollectionExtensions.cs",
-              "RelativeDocumentMoniker": "API\\Extensions\\ServiceCollectionExtensions.cs",
-              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\Extensions\\ServiceCollectionExtensions.cs",
-              "RelativeToolTip": "API\\Extensions\\ServiceCollectionExtensions.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAQwA4AAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T04:43:59.955Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
               "Title": "IEndpointGroup.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\Extensions\\IEndpointGroup.cs",
               "RelativeDocumentMoniker": "API\\Extensions\\IEndpointGroup.cs",
@@ -720,7 +502,238 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RegisterEventCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommandHandler.cs",
+              "RelativeDocumentMoniker": "Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommandHandler.cs",
+              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommandHandler.cs",
+              "RelativeToolTip": "Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommandHandler.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAAwDUAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T06:00:03.732Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DeleteEventCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Events\\DeleteEvent\\DeleteEventCommandHandler.cs",
+              "RelativeDocumentMoniker": "Core\\Application\\Features\\Events\\DeleteEvent\\DeleteEventCommandHandler.cs",
+              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Events\\DeleteEvent\\DeleteEventCommandHandler.cs",
+              "RelativeToolTip": "Core\\Application\\Features\\Events\\DeleteEvent\\DeleteEventCommandHandler.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAAAEIAAABsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T10:11:58.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CancelEventCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Registrations\\CancelEvent\\CancelEventCommandHandler.cs",
+              "RelativeDocumentMoniker": "Core\\Application\\Features\\Registrations\\CancelEvent\\CancelEventCommandHandler.cs",
+              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Registrations\\CancelEvent\\CancelEventCommandHandler.cs",
+              "RelativeToolTip": "Core\\Application\\Features\\Registrations\\CancelEvent\\CancelEventCommandHandler.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAADwvyoAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-30T04:52:59.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GetRegistrationsByUserIdQueryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Registrations\\GetRegistrationsByUserId\\GetRegistrationsByUserIdQueryHandler.cs",
+              "RelativeDocumentMoniker": "Core\\Application\\Features\\Registrations\\GetRegistrationsByUserId\\GetRegistrationsByUserIdQueryHandler.cs",
+              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Registrations\\GetRegistrationsByUserId\\GetRegistrationsByUserIdQueryHandler.cs",
+              "RelativeToolTip": "Core\\Application\\Features\\Registrations\\GetRegistrationsByUserId\\GetRegistrationsByUserIdQueryHandler.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAAADEAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T10:14:11.646Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "API\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\Properties\\launchSettings.json",
+              "RelativeToolTip": "API\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-28T09:57:28.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\appsettings.json",
+              "RelativeDocumentMoniker": "API\\appsettings.json",
+              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\appsettings.json",
+              "RelativeToolTip": "API\\appsettings.json",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAAA0AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-28T04:46:19.643Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "API\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\appsettings.Development.json",
+              "RelativeToolTip": "API\\appsettings.Development.json",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAwAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-28T04:46:16.993Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GetEventsSummaryQueryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Events\\GetEventsSummary\\GetEventsSummaryQueryHandler.cs",
+              "RelativeDocumentMoniker": "Core\\Application\\Features\\Events\\GetEventsSummary\\GetEventsSummaryQueryHandler.cs",
+              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Events\\GetEventsSummary\\GetEventsSummaryQueryHandler.cs",
+              "RelativeToolTip": "Core\\Application\\Features\\Events\\GetEventsSummary\\GetEventsSummaryQueryHandler.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAewCIAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T07:19:16.375Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RegistrationEmailTemplate.cs",
+              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Templates\\RegistrationEmailTemplate.cs",
+              "RelativeDocumentMoniker": "Core\\Application\\Templates\\RegistrationEmailTemplate.cs",
+              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Templates\\RegistrationEmailTemplate.cs",
+              "RelativeToolTip": "Core\\Application\\Templates\\RegistrationEmailTemplate.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAWwBAAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-30T04:38:20.687Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "RegisterEventCommandValidator.cs",
+              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommandValidator.cs",
+              "RelativeDocumentMoniker": "Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommandValidator.cs",
+              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommandValidator.cs",
+              "RelativeToolTip": "Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommandValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T10:26:09.977Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "RegisterEventCommand.cs",
+              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommand.cs",
+              "RelativeDocumentMoniker": "Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommand.cs",
+              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommand.cs",
+              "RelativeToolTip": "Core\\Application\\Features\\Registrations\\RegisterEvent\\RegisterEventCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T10:26:09.269Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IEventLinkGeneratorService.cs",
+              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Contracts\\Utilities\\IEventLinkGeneratorService.cs",
+              "RelativeDocumentMoniker": "Core\\Application\\Contracts\\Utilities\\IEventLinkGeneratorService.cs",
+              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Contracts\\Utilities\\IEventLinkGeneratorService.cs",
+              "RelativeToolTip": "Core\\Application\\Contracts\\Utilities\\IEventLinkGeneratorService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T09:33:33.862Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "EventLinkGeneratorService.cs",
+              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Infrastructure\\Utils\\Services\\EventLinkGeneratorService.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Utils\\Services\\EventLinkGeneratorService.cs",
+              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Infrastructure\\Utils\\Services\\EventLinkGeneratorService.cs",
+              "RelativeToolTip": "Infrastructure\\Utils\\Services\\EventLinkGeneratorService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T09:34:00.188Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AddEventCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Events\\AddEvent\\AddEventCommandHandler.cs",
+              "RelativeDocumentMoniker": "Core\\Application\\Features\\Events\\AddEvent\\AddEventCommandHandler.cs",
+              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Events\\AddEvent\\AddEventCommandHandler.cs",
+              "RelativeToolTip": "Core\\Application\\Features\\Events\\AddEvent\\AddEventCommandHandler.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAjwEoAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T10:11:54.019Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ImageUploadService.cs",
+              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Infrastructure\\Utils\\Services\\ImageUploadService.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Utils\\Services\\ImageUploadService.cs",
+              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Infrastructure\\Utils\\Services\\ImageUploadService.cs",
+              "RelativeToolTip": "Infrastructure\\Utils\\Services\\ImageUploadService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T05:17:58.899Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "NotificationType.cs",
+              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Domain\\Enums\\NotificationType.cs",
+              "RelativeDocumentMoniker": "Core\\Domain\\Enums\\NotificationType.cs",
+              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Domain\\Enums\\NotificationType.cs",
+              "RelativeToolTip": "Core\\Domain\\Enums\\NotificationType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T09:12:15.269Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "NotificationSendCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Notification\\NotificationSendCommand\\NotificationSendCommandHandler.cs",
+              "RelativeDocumentMoniker": "Core\\Application\\Features\\Notification\\NotificationSendCommand\\NotificationSendCommandHandler.cs",
+              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Notification\\NotificationSendCommand\\NotificationSendCommandHandler.cs",
+              "RelativeToolTip": "Core\\Application\\Features\\Notification\\NotificationSendCommand\\NotificationSendCommandHandler.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwB0AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T10:12:43.26Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "NotificationSendCommand.cs",
+              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Notification\\NotificationSendCommand\\NotificationSendCommand.cs",
+              "RelativeDocumentMoniker": "Core\\Application\\Features\\Notification\\NotificationSendCommand\\NotificationSendCommand.cs",
+              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Notification\\NotificationSendCommand\\NotificationSendCommand.cs",
+              "RelativeToolTip": "Core\\Application\\Features\\Notification\\NotificationSendCommand\\NotificationSendCommand.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAWwAsAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T10:12:41.323Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 19,
+              "Title": "ServiceCollectionExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\Extensions\\ServiceCollectionExtensions.cs",
+              "RelativeDocumentMoniker": "API\\Extensions\\ServiceCollectionExtensions.cs",
+              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\Extensions\\ServiceCollectionExtensions.cs",
+              "RelativeToolTip": "API\\Extensions\\ServiceCollectionExtensions.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAQwA4AAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T04:43:59.955Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
               "Title": "AddEventCommandValidator.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Events\\AddEvent\\AddEventCommandValidator.cs",
               "RelativeDocumentMoniker": "Core\\Application\\Features\\Events\\AddEvent\\AddEventCommandValidator.cs",
@@ -732,7 +745,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\Program.cs",
               "RelativeDocumentMoniker": "API\\Program.cs",
@@ -744,7 +757,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "NotificationSenderService.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Infrastructure\\Utils\\Services\\NotificationSenderService.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Utils\\Services\\NotificationSenderService.cs",
@@ -756,7 +769,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "QRCodeGeneratorService.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Infrastructure\\Utils\\Services\\QRCodeGeneratorService.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Utils\\Services\\QRCodeGeneratorService.cs",
@@ -768,7 +781,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "AddEventCommand.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Events\\AddEvent\\AddEventCommand.cs",
               "RelativeDocumentMoniker": "Core\\Application\\Features\\Events\\AddEvent\\AddEventCommand.cs",
@@ -780,7 +793,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "DeleteEventCommand.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Events\\DeleteEvent\\DeleteEventCommand.cs",
               "RelativeDocumentMoniker": "Core\\Application\\Features\\Events\\DeleteEvent\\DeleteEventCommand.cs",
@@ -792,7 +805,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "NotificationMessageDTO.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\DTO\\NotificationMessageDTO.cs",
               "RelativeDocumentMoniker": "Core\\Application\\DTO\\NotificationMessageDTO.cs",
@@ -804,7 +817,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "INotificationSenderService.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Contracts\\Notification\\INotificationSenderService.cs",
               "RelativeDocumentMoniker": "Core\\Application\\Contracts\\Notification\\INotificationSenderService.cs",
@@ -816,7 +829,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "EventManagementAPI.Core.Application.csproj",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\EventManagementAPI.Core.Application.csproj",
               "RelativeDocumentMoniker": "Core\\Application\\EventManagementAPI.Core.Application.csproj",
@@ -828,7 +841,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "HttpResponseExtensions.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\Extensions\\HttpResponseExtensions.cs",
               "RelativeDocumentMoniker": "API\\Extensions\\HttpResponseExtensions.cs",
@@ -840,7 +853,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "AuthEndpoints.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\Endpoints\\AuthEndpoints.cs",
               "RelativeDocumentMoniker": "API\\Endpoints\\AuthEndpoints.cs",
@@ -852,7 +865,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "EventEndpoints.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\Endpoints\\EventEndpoints.cs",
               "RelativeDocumentMoniker": "API\\Endpoints\\EventEndpoints.cs",
@@ -864,7 +877,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "JwtTokenGenerateService.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Infrastructure\\Identity\\Services\\JwtTokenGenerateService.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Identity\\Services\\JwtTokenGenerateService.cs",
@@ -876,7 +889,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Infrastructure\\Identity\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Identity\\Services\\UserService.cs",
@@ -888,7 +901,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "ApiResponse.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Response\\ApiResponse.cs",
               "RelativeDocumentMoniker": "Core\\Application\\Response\\ApiResponse.cs",
@@ -900,7 +913,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "ApiResponse{T}.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Response\\ApiResponse{T}.cs",
               "RelativeDocumentMoniker": "Core\\Application\\Response\\ApiResponse{T}.cs",
@@ -912,7 +925,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "ApplicationUser.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Infrastructure\\Identity\\Models\\ApplicationUser.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Identity\\Models\\ApplicationUser.cs",
@@ -924,7 +937,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "UserFactory.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Infrastructure\\Identity\\Factories\\UserFactory.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Identity\\Factories\\UserFactory.cs",
@@ -936,7 +949,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "UserDTOFactory.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Infrastructure\\Identity\\Factories\\UserDTOFactory.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Identity\\Factories\\UserDTOFactory.cs",
@@ -948,7 +961,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "JwtParserService.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Infrastructure\\Identity\\Services\\JwtParserService.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Identity\\Services\\JwtParserService.cs",
@@ -960,7 +973,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "AppIdentityDbContext.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Infrastructure\\Identity\\Context\\AppIdentityDbContext.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Identity\\Context\\AppIdentityDbContext.cs",
@@ -972,7 +985,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 41,
               "Title": "RegistrationCommandHandler.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Auth\\Register\\RegistrationCommandHandler.cs",
               "RelativeDocumentMoniker": "Core\\Application\\Features\\Auth\\Register\\RegistrationCommandHandler.cs",
@@ -984,7 +997,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 42,
               "Title": "RegistrationEndpoints.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\Endpoints\\RegistrationEndpoints.cs",
               "RelativeDocumentMoniker": "API\\Endpoints\\RegistrationEndpoints.cs",
@@ -996,7 +1009,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 43,
               "Title": "ImageUploadCommandHandler.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Images\\ImageUpload\\ImageUploadCommandHandler.cs",
               "RelativeDocumentMoniker": "Core\\Application\\Features\\Images\\ImageUpload\\ImageUploadCommandHandler.cs",
@@ -1008,7 +1021,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 44,
               "Title": "LoginCommandHandler.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Auth\\Login\\LoginCommandHandler.cs",
               "RelativeDocumentMoniker": "Core\\Application\\Features\\Auth\\Login\\LoginCommandHandler.cs",
@@ -1020,7 +1033,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 45,
               "Title": "EndpointGroupExtension.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\API\\Extensions\\EndpointGroupExtension.cs",
               "RelativeDocumentMoniker": "API\\Extensions\\EndpointGroupExtension.cs",
@@ -1032,7 +1045,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 46,
               "Title": "LoginCommandValidator.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Auth\\Login\\LoginCommandValidator.cs",
               "RelativeDocumentMoniker": "Core\\Application\\Features\\Auth\\Login\\LoginCommandValidator.cs",
@@ -1044,7 +1057,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 47,
               "Title": "GetEventByIdQueryHandler.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Events\\GetEventById\\GetEventByIdQueryHandler.cs",
               "RelativeDocumentMoniker": "Core\\Application\\Features\\Events\\GetEventById\\GetEventByIdQueryHandler.cs",
@@ -1056,7 +1069,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 48,
               "Title": "GetEventsByUserIdQuery.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Events\\GetEventsByUserId\\GetEventsByUserIdQuery.cs",
               "RelativeDocumentMoniker": "Core\\Application\\Features\\Events\\GetEventsByUserId\\GetEventsByUserIdQuery.cs",
@@ -1068,7 +1081,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 49,
               "Title": "GetEventsQueryHandler.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Events\\GetEvents\\GetEventsQueryHandler.cs",
               "RelativeDocumentMoniker": "Core\\Application\\Features\\Events\\GetEvents\\GetEventsQueryHandler.cs",
@@ -1080,7 +1093,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 50,
               "Title": "GetEventsQuery.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Events\\GetEvents\\GetEventsQuery.cs",
               "RelativeDocumentMoniker": "Core\\Application\\Features\\Events\\GetEvents\\GetEventsQuery.cs",
@@ -1092,7 +1105,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 51,
               "Title": "ErrorType.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Domain\\Enums\\ErrorType.cs",
               "RelativeDocumentMoniker": "Core\\Domain\\Enums\\ErrorType.cs",
@@ -1104,7 +1117,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 55,
               "Title": "MappingProfile.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Profiles\\MappingProfile.cs",
               "RelativeDocumentMoniker": "Core\\Application\\Profiles\\MappingProfile.cs",
@@ -1116,7 +1129,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 54,
               "Title": "UserRole.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Domain\\Enums\\UserRole.cs",
               "RelativeDocumentMoniker": "Core\\Domain\\Enums\\UserRole.cs",
@@ -1128,7 +1141,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 53,
               "Title": "RegisterType.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Domain\\Enums\\RegisterType.cs",
               "RelativeDocumentMoniker": "Core\\Domain\\Enums\\RegisterType.cs",
@@ -1140,7 +1153,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 52,
               "Title": "EventType.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Domain\\Enums\\EventType.cs",
               "RelativeDocumentMoniker": "Core\\Domain\\Enums\\EventType.cs",
@@ -1152,7 +1165,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 56,
               "Title": "DomainErrors.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Domain\\Errors\\DomainErrors.cs",
               "RelativeDocumentMoniker": "Core\\Domain\\Errors\\DomainErrors.cs",
@@ -1164,7 +1177,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 57,
               "Title": "IEventRepository.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Contracts\\Persistence\\IEventRepository.cs",
               "RelativeDocumentMoniker": "Core\\Application\\Contracts\\Persistence\\IEventRepository.cs",
@@ -1176,7 +1189,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 58,
               "Title": "EventRepository.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Infrastructure\\Persistence\\Repository\\EventRepository.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Persistence\\Repository\\EventRepository.cs",
@@ -1188,7 +1201,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 59,
               "Title": "GetEventByIdQuery.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Events\\GetEventById\\GetEventByIdQuery.cs",
               "RelativeDocumentMoniker": "Core\\Application\\Features\\Events\\GetEventById\\GetEventByIdQuery.cs",
@@ -1200,7 +1213,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 60,
               "Title": "Repository.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Infrastructure\\Persistence\\Repository\\Repository.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Persistence\\Repository\\Repository.cs",
@@ -1212,7 +1225,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 61,
               "Title": "IRepository.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Contracts\\Persistence\\IRepository.cs",
               "RelativeDocumentMoniker": "Core\\Application\\Contracts\\Persistence\\IRepository.cs",
@@ -1224,7 +1237,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 62,
               "Title": "EventSummaryDTO.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\DTO\\EventSummaryDTO.cs",
               "RelativeDocumentMoniker": "Core\\Application\\DTO\\EventSummaryDTO.cs",
@@ -1236,7 +1249,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 63,
               "Title": "PageResultDTO.cs",
               "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\DTO\\PageResultDTO.cs",
               "RelativeDocumentMoniker": "Core\\Application\\DTO\\PageResultDTO.cs",
@@ -1245,18 +1258,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-30T05:23:18.409Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 63,
-              "Title": "CancelEventCommandHandler.cs",
-              "DocumentMoniker": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Registrations\\CancelEvent\\CancelEventCommandHandler.cs",
-              "RelativeDocumentMoniker": "Core\\Application\\Features\\Registrations\\CancelEvent\\CancelEventCommandHandler.cs",
-              "ToolTip": "C:\\Users\\WathilaKarunathilake\\source\\repos\\EventManagementAPI\\Core\\Application\\Features\\Registrations\\CancelEvent\\CancelEventCommandHandler.cs",
-              "RelativeToolTip": "Core\\Application\\Features\\Registrations\\CancelEvent\\CancelEventCommandHandler.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAADwvzEAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-30T04:52:59.176Z"
             },
             {
               "$type": "Document",
