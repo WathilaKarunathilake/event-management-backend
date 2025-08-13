@@ -39,6 +39,7 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.CancelEvent
                 await this.unitOfWork.BeginTransactionAsync();
                 var registration = await this.registrationRepository.FindFirstOrDefaultAsync(x =>
             x.EventId == request.EventId && x.UserId == userId && x.RegisterType == Domain.Enums.RegisterType.REGISTERED);
+
                 var evt = await this.eventRepository.GetByIdAsync(request.EventId);
                 if (registration == null)
                 {
@@ -66,10 +67,11 @@ namespace EventManagementAPI.Core.Application.Features.Registrations.CancelEvent
                 await this.unitOfWork.CommitAsync();
                 return Result<string>.Success("Event canceled successfully!");
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 await this.unitOfWork.RollbackAsync();
-                return Result<string>.Failure(DomainErrors.Transaction.TransactionFailed());
+                return Result<string>.Success(e.Message);
+                //return Result<string>.Failure(DomainErrors.Transaction.TransactionFailed());
             }
          }
     }
