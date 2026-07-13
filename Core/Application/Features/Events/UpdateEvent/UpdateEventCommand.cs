@@ -5,15 +5,26 @@ namespace EventManagementAPI.Core.Application.Features.Events.UpdateEvent
 {
     using EventManagementAPI.Core.Application.Contracts.Messaging.Commands;
     using EventManagementAPI.Core.Application.Response;
+    using EventManagementAPI.Core.Domain.Enums;
 
     public class UpdateEventCommand : ICommand<Result<string>>
     {
         public Guid Id { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string Location { get; set; }
+
+        public string? Title { get; set; }
+
+        public string? Description { get; set; }
+
+        public string? ImageUrl { get; set; }
+
+        public string? Location { get; set; }
+
         public DateTime StartDateTime { get; set; }
+
+        public EventType EventType { get; set; }
+
         public int Capacity { get; set; }
+
         public DateTime EndDateTime { get; set; }
     }
 }

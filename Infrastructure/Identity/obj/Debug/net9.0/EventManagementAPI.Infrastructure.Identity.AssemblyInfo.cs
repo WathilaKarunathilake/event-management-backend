@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EventManagementAPI.Infrastructure.Identity")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+148ee06fcf37f5540d86a6825de0a0704eeca3d2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c1e54149ee2e255d84ede6e484c640b3fe9fb35")]
 [assembly: System.Reflection.AssemblyProductAttribute("EventManagementAPI.Infrastructure.Identity")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EventManagementAPI.Infrastructure.Identity")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

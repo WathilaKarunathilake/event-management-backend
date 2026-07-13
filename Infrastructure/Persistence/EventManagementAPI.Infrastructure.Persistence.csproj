@@ -27,8 +27,4 @@
 	  <ProjectReference Include="..\..\Core\Application\EventManagementAPI.Core.Application.csproj" />
 	  <ProjectReference Include="..\..\Core\Domain\EventManagementAPI.Core.Domain.csproj" />
 	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Configurations\" />
-	</ItemGroup>
 </Project>

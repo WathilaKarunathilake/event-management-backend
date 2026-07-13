@@ -1,10 +1,10 @@
 ﻿// <copyright file="UserDTO.cs" company="Ascentic">
 // Copyright (c) Ascentic. All rights reserved.
 // </copyright>
-using EventManagementAPI.Core.Domain.Enums;
-
 namespace EventManagementAPI.Core.Application.DTO
 {
+    using EventManagementAPI.Core.Domain.Enums;
+
     public class UserDTO
     {
         public bool Succeeded { get; set; }
@@ -18,5 +18,7 @@ namespace EventManagementAPI.Core.Application.DTO
         public UserRole? Role { get; set; }
 
         public string? Email { get; set; }
+
+        public string? PhoneNumber { get; set; }
     }
 }

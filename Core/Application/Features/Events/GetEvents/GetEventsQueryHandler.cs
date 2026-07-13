@@ -8,23 +8,30 @@ namespace EventManagementAPI.Core.Application.Features.Events.GetEvents
     using EventManagementAPI.Core.Application.Contracts.Persistence;
     using EventManagementAPI.Core.Application.DTO;
     using EventManagementAPI.Core.Application.Response;
-    using EventManagementAPI.Core.Domain.Entities;
 
-    public class GetEventsQueryHandler : IQueryHandler<GetEventsQuery, Result<List<EventDTO>>>
+    public class GetEventsQueryHandler : IQueryHandler<GetEventsQuery, Result<PageResultDTO<EventDTO>>>
     {
         private readonly IMapper mapper;
-        private readonly IRepository<Event> eventRepository;
+        private readonly IEventRepository eventRepository;
 
-        public GetEventsQueryHandler(IMapper mapper, IRepository<Event> eventRepository)
+        public GetEventsQueryHandler(IMapper mapper, IEventRepository eventRepository)
         {
             this.mapper = mapper;
             this.eventRepository = eventRepository;
         }
 
-        public async Task<Result<List<EventDTO>>> Handle(GetEventsQuery request, CancellationToken cancellationToken)
+        public async Task<Result<PageResultDTO<EventDTO>>> Handle(GetEventsQuery request, CancellationToken cancellationToken)
         {
-            var events = await this.eventRepository.GetAllAsync();
-            return Result<List<EventDTO>>.Success(this.mapper.Map<List<EventDTO>>(events));
+            var events = await this.eventRepository.GetPagedEventsAsync(request.Page, request.PageSize, request.SearchTerm, request.SortBy);
+            var eventDtos = this.mapper.Map<List<EventDTO>>(events.Items);
+
+            var pageResult = new PageResultDTO<EventDTO>
+            {
+                Items = eventDtos,
+                TotalCount = events.TotalCount,
+            };
+
+            return Result<PageResultDTO<EventDTO>>.Success(pageResult);
         }
     }
 }

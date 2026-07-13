@@ -14,6 +14,13 @@ namespace EventManagementAPI.Infrastructure.Persistence.Context
         }
 
         public DbSet<Event> Events { get; set; }
+
         public DbSet<Registration> Registrations { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

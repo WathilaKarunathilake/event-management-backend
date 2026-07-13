@@ -2,54 +2,53 @@
 // Copyright (c) Ascentic. All rights reserved.
 // </copyright>
 using EventManagementAPI.API.Extensions;
-using EventManagementAPI.Core.Application.Contracts.Identity;
-using EventManagementAPI.Core.Application.Contracts.Persistence;
-using EventManagementAPI.Core.Application.Profiles;
-using EventManagementAPI.Infrastructure.Identity.Context;
-using EventManagementAPI.Infrastructure.Identity.Models;
-using EventManagementAPI.Infrastructure.Identity.Services;
-using EventManagementAPI.Infrastructure.Persistence.Context;
-using EventManagementAPI.Infrastructure.Persistence.Repository;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+using EventManagementAPI.Infrastructure.Identity.Extensions;
+using EventManagementAPI.Infrastructure.Utils.Logging;
+using WathilaKarunathilake.Notification.Hubs;
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+        var frontendOrigin = builder.Configuration.GetValue<string>("Frontend:Origin") !;
 
-        builder.Services.AddOpenApi();
-        builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-        builder.Services.AddScoped<IUserService, UserService>();
-        builder.Services.AddScoped<IJwtTokenGenerateService, JwtTokenGenerateService>();
+        builder.Services
+            .AddCorsPolicy(frontendOrigin)
+            .AddDbContexts(builder.Configuration)
+            .AddIdentityServices()
+            .AddApplicationServices()
+            .AddMediatRAndAutoMapper()
+            .AddAuthenticationAndAuthorization(builder.Configuration)
+            .AddOtherInfrastructure()
+            .AddSwaggerConfiguration();
 
-        builder.Services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-        
-        builder.Services.AddDbContext<AppIdentityDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-        builder.Services.AddIdentityCore<ApplicationUser>()
-            .AddRoles<IdentityRole>()
-            .AddEntityFrameworkStores<AppIdentityDbContext>();
-
-        builder.Services.AddAutoMapper(typeof(MappingProfile));
-        builder.Services.AddMediatR(cfg =>
-        {
-            cfg.RegisterServicesFromAssembly(typeof(MappingProfile).Assembly);
-        });
+        builder.Host.UseSerilogLogger();
 
         var app = builder.Build();
+        app.UseCors("AllowFrontend");
+
+        app.UseAuthentication();
+        app.UseAuthorization();
 
         if (app.Environment.IsDevelopment())
         {
             app.MapOpenApi();
+            app.UseSwagger();
+            app.UseSwaggerUI();
         }
 
-        app.UseHttpsRedirection();
-
         app.RegisterAllEndpointGroups();
+
+        // Mapping the Notifcations connection
+        app.MapHub<NotificationHub>("/notificationHub");
+
+        using (var scope = app.Services.CreateScope())
+        {
+            var services = scope.ServiceProvider;
+            await SeedData.InitializeAsync(services);
+        }
+
         app.Run();
     }
 }

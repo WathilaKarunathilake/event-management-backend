@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EventManagementAPI.Core.Application.Features.Registrations.CancelEvent
+namespace EventManagementAPI.Infrastructure.Notification.Services
 {
-    internal class CancelEventCommandValidator
+    internal class NotificationSendingService
     {
     }
 }

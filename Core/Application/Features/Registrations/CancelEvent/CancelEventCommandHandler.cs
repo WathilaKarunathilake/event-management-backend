@@ -1,34 +1,76 @@
 ﻿// <copyright file="CancelEventCommandHandler.cs" company="Ascentic">
 // Copyright (c) Ascentic. All rights reserved.
 // </copyright>
-using AutoMapper;
-using EventManagementAPI.Core.Application.Contracts.Messaging.Commands;
-using EventManagementAPI.Core.Application.Contracts.Persistence;
-using EventManagementAPI.Core.Application.Features.Registrations.RegisterEvent;
-using EventManagementAPI.Core.Application.Response;
-using EventManagementAPI.Core.Domain.Entities;
-
 namespace EventManagementAPI.Core.Application.Features.Registrations.CancelEvent
 {
+    using EventManagementAPI.Core.Application.Contracts.Messaging.Commands;
+    using EventManagementAPI.Core.Application.Contracts.Persistence;
+    using EventManagementAPI.Core.Application.Extensions;
+    using EventManagementAPI.Core.Application.Response;
+    using EventManagementAPI.Core.Domain.Entities;
+    using EventManagementAPI.Core.Domain.Errors;
+
     public class CancelEventCommandHandler : ICommandHandler<CancelEventCommand, Result<string>>
     {
-
         private readonly IRepository<Registration> registrationRepository;
-        private readonly IMapper mapper;
+        private readonly IRepository<Event> eventRepository;
+        private readonly IUnitOfWork unitOfWork;
 
-        public CancelEventCommandHandler(IRepository<Registration> registrationRepository, IMapper mapper)
+        public CancelEventCommandHandler(IRepository<Registration> registrationRepository, IRepository<Event> eventRepository, IUnitOfWork unitOfWork)
         {
             this.registrationRepository = registrationRepository;
-            this.mapper = mapper;
+            this.eventRepository = eventRepository;
+            this.unitOfWork = unitOfWork;
         }
 
         public async Task<Result<string>> Handle(CancelEventCommand request, CancellationToken cancellationToken)
         {
-            var eventDetails = await registrationRepository.FindFirstOrDefaultAsync(x => x.EventId == request.EventId);
-            eventDetails.RegisterType = Domain.Enums.RegisterType.CANCELED;
-            await registrationRepository.UpdateAsync(eventDetails);
-            await registrationRepository.SaveAsync();
-            return Result<string>.Success("Event updated successfully !");
-        }
+            try
+            {
+                var userIdString = request.User!.GetUserId();
+                if (string.IsNullOrEmpty(userIdString) || !Guid.TryParse(userIdString, out var userId))
+                {
+                    return Result<string>.Failure(DomainErrors.Auth.NotAuthenticated());
+                }
+
+                request.UserId = userId;
+
+                await this.unitOfWork.BeginTransactionAsync();
+                var registration = await this.registrationRepository.FindFirstOrDefaultAsync(x =>
+                    x.EventId == request.EventId && x.UserId == userId);
+
+                var evt = await this.eventRepository.GetByIdAsync(request.EventId);
+                if (registration == null)
+                {
+                    return Result<string>.Failure(DomainErrors.Registration.NotFoundForEvent(request.EventId));
+                }
+
+                if (evt!.StartDateTime < DateTime.UtcNow)
+                {
+                    return Result<string>.Failure(DomainErrors.Event.EventAlreadyPassed());
+                }
+
+                evt.TotalRegistrations = Math.Max(0, evt.TotalRegistrations - 1);
+
+                if (registration.RegisterType == Domain.Enums.RegisterType.CANCELED)
+                {
+                    return Result<string>.Failure(DomainErrors.Registration.AlreadyCanceled());
+                }
+
+                registration.RegisterType = Domain.Enums.RegisterType.CANCELED;
+
+                await this.registrationRepository.UpdateAsync(registration);
+                await this.eventRepository.UpdateAsync(evt);
+
+                await this.unitOfWork.SaveChangesAsync(cancellationToken);
+                await this.unitOfWork.CommitAsync();
+                return Result<string>.Success("Event canceled successfully!");
+            }
+            catch (Exception)
+            {
+                await this.unitOfWork.RollbackAsync();
+                return Result<string>.Failure(DomainErrors.Transaction.TransactionFailed());
+            }
+         }
     }
 }

@@ -5,6 +5,7 @@ namespace EventManagementAPI.Infrastructure.Persistence.Repository
 {
     using System.Linq.Expressions;
     using EventManagementAPI.Core.Application.Contracts.Persistence;
+    using EventManagementAPI.Core.Application.DTO;
     using EventManagementAPI.Infrastructure.Persistence.Context;
     using Microsoft.EntityFrameworkCore;
 
@@ -55,6 +56,23 @@ namespace EventManagementAPI.Infrastructure.Persistence.Repository
         public async Task<T?> FindFirstOrDefaultAsync(Expression<Func<T, bool>> predicate)
         {
             return await this.dbSet.FirstOrDefaultAsync(predicate);
+        }
+
+        public async Task<PageResultDTO<T?>> GetPagedAsync(int page, int pageSize)
+        {
+            var query = this.dbSet.AsQueryable();
+
+            var totalCount = await query.CountAsync();
+            var items = await query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            return new PageResultDTO<T?>
+            {
+                TotalCount = totalCount,
+                Items = items,
+            };
         }
     }
 }

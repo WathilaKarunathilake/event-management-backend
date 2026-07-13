@@ -13,6 +13,9 @@ obj/
 *.userosscache
 *.sln.docstates
 
+.vs/
+
+
 # Auto-generated files
 *.generated.cs
 
@@ -70,3 +73,5 @@ artifacts/
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
+appsettings.*.json
+

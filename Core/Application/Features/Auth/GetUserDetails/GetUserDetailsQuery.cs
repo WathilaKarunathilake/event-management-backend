@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿// <copyright file="GetUserDetailsQuery.cs" company="Ascentic">
+// Copyright (c) Ascentic. All rights reserved.
+// </copyright>
 namespace EventManagementAPI.Core.Application.Features.Auth.GetUserDetails
 {
-    internal class GetUserDetailsQuery
+    using System.Security.Claims;
+    using EventManagementAPI.Core.Application.Contracts.Messaging.Query;
+    using EventManagementAPI.Core.Application.DTO;
+    using EventManagementAPI.Core.Application.Response;
+
+    public class GetUserDetailsQuery : IQuery<Result<UserDataDTO>>
     {
+        public ClaimsPrincipal? User { get; set; }
     }
 }

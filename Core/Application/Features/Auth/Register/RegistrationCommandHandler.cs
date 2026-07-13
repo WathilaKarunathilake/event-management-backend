@@ -1,15 +1,14 @@
 ﻿// <copyright file="RegistrationCommandHandler.cs" company="Ascentic">
 // Copyright (c) Ascentic. All rights reserved.
 // </copyright>
-using AutoMapper.Execution;
-using EventManagementAPI.Core.Application.Contracts.Identity;
-using EventManagementAPI.Core.Application.Contracts.Messaging.Commands;
-using EventManagementAPI.Core.Application.DTO;
-using EventManagementAPI.Core.Application.Response;
-using EventManagementAPI.Core.Domain.Errors;
-
 namespace EventManagementAPI.Core.Application.Features.Auth.Register
 {
+    using EventManagementAPI.Core.Application.Contracts.Identity;
+    using EventManagementAPI.Core.Application.Contracts.Messaging.Commands;
+    using EventManagementAPI.Core.Application.DTO;
+    using EventManagementAPI.Core.Application.Response;
+    using EventManagementAPI.Core.Domain.Errors;
+
     public class RegistrationCommandHandler : ICommandHandler<RegistrationCommand, Result<AuthDTO>>
     {
         private readonly IUserService userService;
@@ -21,21 +20,26 @@ namespace EventManagementAPI.Core.Application.Features.Auth.Register
             this.jwtTokenGenerateService = jwtTokenGenerateService;
         }
 
-
         public async Task<Result<AuthDTO>> Handle(RegistrationCommand request, CancellationToken cancellationToken)
         {
-            var result = await this.userService.CreateUserAsync(request.Name, request.Email, request.Password, request.PhoneNumber, request.Role);
+            var result = await this.userService.CreateUserAsync(request.Name!, request.Email!, request.Password!, request.PhoneNumber!, request.Role);
 
             if (!result.Succeeded)
             {
-                return Result<AuthDTO>.Failure("");
+                return Result<AuthDTO>.Failure(DomainErrors.Custom.Failure(result.Errors!));
             }
 
-            await this.userService.AddToRoleAsync(request.Email, request.Role.ToString());
+            await this.userService.AddToRoleAsync(request.Email!, request.Role.ToString());
 
-            string token = this.jwtTokenGenerateService.GenerateToken(result.Name, result.UserId.ToString(), result.Email, request.Role.ToString());
+            string token = this.jwtTokenGenerateService.GenerateToken(result.Name!, result.UserId.ToString(), result.Email!, request.Role.ToString());
+            var refreshToken = this.jwtTokenGenerateService.GenerateRefreshToken();
+            var refreshTokenExpiry = DateTime.UtcNow.AddDays(7);
+
+            // Save refresh token to DB
+            await this.userService.SaveRefreshTokenAsync(result.UserId.ToString(), refreshToken, refreshTokenExpiry);
             return Result<AuthDTO>.Success(new AuthDTO
             {
+                RefreshToken = refreshToken,
                 Token = token,
                 Message = "User regisration successful !",
             });

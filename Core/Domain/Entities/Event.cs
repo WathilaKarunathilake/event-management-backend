@@ -3,16 +3,34 @@
 // </copyright>
 namespace EventManagementAPI.Core.Domain.Entities
 {
+    using EventManagementAPI.Core.Domain.Enums;
+
     public class Event
     {
         public Guid Id { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string Location { get; set; }
+
+        public string? Title { get; set; }
+
+        public string? Description { get; set; }
+
+        public string? Location { get; set; }
+
         public int Capacity { get; set; }
+
+        public string? ImageUrl { get; set; }
+
+        public EventType EventType { get; set; }
+
         public DateTime StartDateTime { get; set; }
+
         public DateTime EndDateTime { get; set; }
+
         public Guid CreatedBy { get; set; }
+
+        public string? CreatorName { get; set; }
+
         public DateTime Created { get; set; } = DateTime.Now;
+
+        public int TotalRegistrations { get; set; } = 0;
     }
 }

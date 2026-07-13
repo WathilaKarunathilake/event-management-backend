@@ -3,12 +3,14 @@
 // </copyright>
 namespace EventManagementAPI.Infrastructure.Identity.Services
 {
+    using System.IdentityModel.Tokens.Jwt;
+    using System.Security.Claims;
+    using System.Security.Cryptography;
+    using System.Text;
     using EventManagementAPI.Core.Application.Contracts.Identity;
     using Microsoft.Extensions.Configuration;
     using Microsoft.IdentityModel.Tokens;
-    using System.IdentityModel.Tokens.Jwt;
-    using System.Security.Claims;
-    using System.Text;
+
     public class JwtTokenGenerateService : IJwtTokenGenerateService
     {
         private readonly IConfiguration configuration;
@@ -21,7 +23,7 @@ namespace EventManagementAPI.Infrastructure.Identity.Services
         public string GenerateToken(string name, string userId, string email, string role)
         {
             var jwtSettings = this.configuration.GetSection("JwtSettings");
-            var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]);
+            var key = Encoding.UTF8.GetBytes(jwtSettings["Key"] !);
 
             var claims = new List<Claim>
             {
@@ -34,7 +36,7 @@ namespace EventManagementAPI.Infrastructure.Identity.Services
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddMinutes(double.Parse(jwtSettings["ExpiresInMinutes"])),
+                Expires = DateTime.UtcNow.AddMinutes(double.Parse(jwtSettings["ExpiresInMinutes"] !)),
                 Issuer = jwtSettings["Issuer"],
                 Audience = jwtSettings["Audience"],
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
@@ -43,6 +45,11 @@ namespace EventManagementAPI.Infrastructure.Identity.Services
             var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
+        }
+
+        public string GenerateRefreshToken()
+        {
+            return Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
         }
     }
 }
